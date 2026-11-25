@@ -61,7 +61,12 @@ window.HM = {
 /* ========================================================================
    2. STYLES  (all the CSS for this page)
    ======================================================================== */
-const HM_CSS = `@font-face{font-family:'Anastacia';src:url(@@A:fonts/Anastacia.woff2@@) format('woff2');font-display:swap}
+const HM_CSS = `/* FULL WIDTH: breaks my page out of Carrd's narrow center column
+   so it fills the whole browser window, edge to edge. */
+#hm-home{width:100vw !important;max-width:100vw !important;position:relative !important;left:50% !important;margin-left:-50vw !important;margin-right:0 !important}
+html,body{overflow-x:hidden}
+
+@font-face{font-family:'Anastacia';src:url(@@A:fonts/Anastacia.woff2@@) format('woff2');font-display:swap}
 @font-face{font-family:'AnaOne';src:url(@@A:fonts/AnaOne.woff2@@) format('woff2');font-display:swap}
 @font-face{font-family:'Margita';src:url(@@A:fonts/Margita.woff2@@) format('woff2');font-display:swap}
 @font-face{font-family:'Oldtown';src:url(@@A:fonts/Oldtown.woff2@@) format('woff2');font-display:swap}

@@ -61,7 +61,12 @@ window.HM = {
 /* ========================================================================
    2. STYLES  (all the CSS for this page)
    ======================================================================== */
-const HM_CSS = `#hm-hire{margin:0;background:#F1E9DC}
+const HM_CSS = `/* FULL WIDTH: breaks my page out of Carrd's narrow center column
+   so it fills the whole browser window, edge to edge. */
+#hm-hire{width:100vw !important;max-width:100vw !important;position:relative !important;left:50% !important;margin-left:-50vw !important;margin-right:0 !important}
+html,body{overflow-x:hidden}
+
+#hm-hire{margin:0;background:#F1E9DC}
 #hm-hire img{-webkit-user-drag:none;user-drag:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;pointer-events:none}
 #hm-hire a{color:inherit}#hm-hire a:hover{opacity:0.85}
 #hm-hire .paper{background-color:#F1E9DC;background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35  0 0 0 0 0.28  0 0 0 0 0.2  0 0 0 0.09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),radial-gradient(ellipse 80% 60% at 20% 10%, rgba(255,252,246,0.7), rgba(255,252,246,0) 70%),radial-gradient(ellipse 70% 60% at 90% 90%, rgba(196,170,140,0.25), rgba(196,170,140,0) 70%)}

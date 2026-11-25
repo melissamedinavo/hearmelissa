@@ -1,0 +1,133 @@
+Every image the site uses, and which page uses it.
+Upload the whole "images" folder as-is so these names keep working.
+
+images/app-aud.webp                                        coaching, contact
+images/app-emo.webp                                        coaching, contact
+images/app-home.webp                                       coaching, contact
+images/app-todo.webp                                       coaching, contact
+images/audiobook-01.jpg                                    hire
+images/audiobook-02.jpg                                    hire
+images/audiobook-03.jpg                                    hire
+images/audiobook-04.jpg                                    hire
+images/audiobook-05.jpg                                    hire
+images/audiobook-06.jpg                                    hire
+images/audiobook-07.jpg                                    hire
+images/audiobook-08.jpg                                    hire
+images/audiobook-09.jpg                                    hire
+images/audiobook-10.jpg                                    hire
+images/audiobook-11.jpg                                    hire
+images/audiobook-14.jpg                                    hire
+images/audiobook-15.jpg                                    hire
+images/audiobook-16.jpg                                    hire
+images/audiobook-17.jpg                                    hire
+images/audiobook-18.jpg                                    hire
+images/audiobook-19.jpg                                    hire
+images/audiobook-20.jpg                                    hire
+images/audiobook-21.jpg                                    hire
+images/audiobook-22.jpg                                    hire
+images/audiobook-23.jpg                                    hire
+images/audiobook-24.jpg                                    hire
+images/audiobook-25.jpg                                    hire
+images/audiobook-26.jpg                                    hire
+images/audiobook-27.jpg                                    hire
+images/audiobook-28.jpg                                    hire
+images/audiobook-29.jpg                                    hire
+images/audiobook-30.jpg                                    hire
+images/audiobook-31.jpg                                    hire
+images/audiobook-32.jpg                                    hire
+images/audiobook-34.jpg                                    hire
+images/audiobook-35.jpg                                    hire
+images/audiobook-36.jpg                                    hire
+images/audiobook-37.jpg                                    hire
+images/audiobook-38.jpg                                    hire
+images/char-adelina-santos.jpg                             fans, hire
+images/char-callis.jpg                                     fans, hire
+images/char-deadeye.jpg                                    fans, hire
+images/char-gala.jpg                                       fans, hire
+images/char-heta-kol.jpg                                   fans, hire
+images/char-lettie.jpg                                     fans, hire
+images/char-putra.jpg                                      fans, hire
+images/char-yuel.jpg                                       fans, hire
+images/coffee.png                                          coaching, contact, fans, hire, home
+images/drama-antiquarium.jpg                               fans, hire
+images/drama-campfire-blood-drive.jpg                      fans, hire
+images/drama-campfire-bones-of-saint-nicholas.jpg          fans, hire
+images/drama-campfire-desecrate.jpg                        fans, hire
+images/drama-campfire-dreams-of-wolves.jpg                 fans, hire
+images/drama-campfire-west-palm-readers.jpg                fans, hire
+images/drama-coldopen-belladonna.jpg                       fans, hire
+images/drama-coldopen-on-the-hunters-watch.jpg             fans, hire
+images/drama-ominous-solitude-of-birds.jpg                 fans, hire
+images/drama-ominous-stress-kills.jpg                      fans, hire
+images/drama-show-campfire-radio-theater.jpg               fans, hire
+images/drama-show-cold-open-stories.jpg                    fans, hire
+images/drama-show-ominous-thrill.jpg                       fans, hire
+images/headshot-oval.jpg                                   coaching, contact
+images/headshot-smile.jpg                                  coaching, contact, hire
+images/headshot-window.jpg                                 coaching, contact, fans, hire
+images/logo-acecombat.png                                  hire, home
+images/logo-aflac.png                                      hire
+images/logo-aldi.png                                       hire
+images/logo-amazon.png                                     hire
+images/logo-black.png                                      coaching, contact, fans, hire
+images/logo-borderlands4.png                               hire, home
+images/logo-chase.png                                      hire
+images/logo-clorox.png                                     hire
+images/logo-eso.png                                        hire, home
+images/logo-esteelauder.png                                hire
+images/logo-fallout76.png                                  hire, home
+images/logo-ffxiv.png                                      hire, home
+images/logo-google.png                                     hire
+images/logo-instacart.png                                  hire
+images/logo-jcpenney.png                                   hire
+images/logo-lexus.png                                      hire
+images/logo-libertymutual.png                              hire
+images/logo-mcdonalds.png                                  hire
+images/logo-microsoft.png                                  hire
+images/logo-mortuary.png                                   hire, home
+images/logo-pfizer.png                                     hire
+images/logo-pgr.png                                        hire, home
+images/logo-progressive.png                                hire
+images/logo-starfield.png                                  hire, home
+images/logo-swtor.png                                      hire, home
+images/logo-tmobile.png                                    hire
+images/logo-toyota.png                                     hire
+images/logo-valorant.png                                   hire, home
+images/logo-verizon.png                                    hire
+images/logo-walmart.png                                    hire
+images/logo-warframe.png                                   hire, home
+images/logo-white-afkjourney.png                           hire, home
+images/logo-white-caesarspalace.png                        hire
+images/logo-white-cafebustelo.png                          hire
+images/logo-white-capitalone.png                           hire
+images/logo-white-duskfade.png                             hire, home
+images/logo-white-dyinglight.png                           hire, home
+images/logo-white-elmonterey.png                           hire
+images/logo-white-fatalfury.png                            hire, home
+images/logo-white-gbfrelink.png                            hire, home
+images/logo-white-gbvsrising.png                           hire, home
+images/logo-white-generalmills.png                         hire
+images/logo-white-goldmansachs.png                         hire
+images/logo-white-halloween.png                            hire, home
+images/logo-white-hhs.png                                  hire
+images/logo-white-jumex.png                                hire
+images/logo-white-kotex.png                                hire
+images/logo-white-minecraftdungeons.png                    hire, home
+images/logo-white-monkeyisland.png                         hire, home
+images/logo-white-mtgarena.png                             hire, home
+images/logo-white-prudential.png                           hire
+images/logo-white-ross.png                                 hire
+images/logo-white-selaco.png                               hire, home
+images/logo-white-tiaa.png                                 hire
+images/logo-white-trolls.png                               hire, home
+images/logo-white-webmd.png                                hire
+images/logo-white-wwz.png                                  hire, home
+images/logo-white.png                                      coaching, contact, fans, hire, home
+images/logo-xbox.png                                       hire
+images/music-lunaiira.jpg                                  fans, hire
+images/photo-coach-sofa.jpg                                coaching
+images/photo-web01.jpg                                     hire, home
+images/photo-webreal3.jpg                                  hire
+images/photo-webstage.jpg                                  hire
+images/print-lettie-01.jpg                                 fans
+images/studio-cinematic.jpg                                hire

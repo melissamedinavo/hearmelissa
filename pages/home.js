@@ -54,7 +54,7 @@ window.HM = {
   LINKS: {
     // 'images/char-callis.jpg': 'https://...'
   },
-  PAGES: { home: 'https://hearmelissa.com/#home', hire: 'https://hearmelissa.com/#hire', fans: 'https://hearmelissa.com/#fans', coaching: 'https://hearmelissa.com/#coaching', contact: 'https://hearmelissa.com/#contact' }
+  PAGES: { home: 'https://hearmelissa.com/', hire: 'https://hearmelissa.com/#hire', fans: 'https://hearmelissa.com/#fans', coaching: 'https://hearmelissa.com/#coaching', contact: 'https://hearmelissa.com/#contact' }
 };
 
 
@@ -285,7 +285,7 @@ const TPL = `<div class="h2m" ref="{{setRoot}}">
      TOP BAR
      Logo on the left, menu on the right. Links come from PAGES in SETTINGS.
      ======================================================================== -->
-<header class="bar"><a class="me" href="#" aria-label="Melissa Medína, home" style="display:flex;align-items:center;gap:14px;margin-right:auto"><img src="@@A:images/logo-white.png@@" alt="" width="40" height="40" style="width:40px;height:40px"></a><nav><a href="@@P:hire@@">Hire me<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M2.5,13.8 L4.8,11.8 L6.8,9.7 L10.4,7.9 L13.8,6.1 L17.4,4.3 L22.7,3.4 L27.4,2.1 L32.3,1.0 L38.0,0.7 L43.5,0.2 L49.1,-0.4 L54.8,-0.4 L60.3,0.3 L65.8,0.9 L71.5,1.3 L76.2,2.7 L81.2,3.8 L85.5,5.3 L89.5,7.0 L93.3,8.8 L96.3,10.7 L98.3,12.9 L100.2,15.1 L101.2,17.4 L101.5,19.7 L100.9,22.0 L99.8,24.3 L98.4,26.5 L97.2,28.8 L94.2,30.8 L90.2,32.5 L87.3,34.6 L82.4,35.9 L78.1,37.5 L72.9,38.5 L67.4,39.4 L61.9,40.0 L56.2,40.7 L50.4,40.7 L44.5,40.8 L38.7,40.4 L33.0,39.9 L27.4,39.0 L22.4,37.8 L17.2,36.6 L13.2,34.9 L8.8,33.3 L5.4,31.3 L2.4,29.3 L1.0,26.9 L-1.3,24.8 L-2.3,22.4 L-2.0,20.1 L-2.2,17.7 L-1.5,15.3 L0.8,13.2 L3.0,11.0 L5.1,8.7 L8.7,6.8 L12.0,4.8" vector-effect="non-scaling-stroke"></path></svg></a><a href="@@P:fans@@">Fans &amp; press<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M2.8,13.9 L4.4,11.7 L7.4,9.8 L9.8,7.7 L14.1,6.2 L17.8,4.5 L22.0,3.0 L27.3,2.1 L32.2,0.8 L37.8,0.3 L43.4,-0.1 L49.1,-0.3 L54.8,-0.2 L60.4,0.3 L66.2,0.5 L71.2,1.6 L76.7,2.4 L81.4,3.7 L84.9,5.6 L89.1,7.1 L92.7,8.9 L96.1,10.8 L97.5,13.0 L99.9,15.2 L100.6,17.4 L101.7,19.7 L101.7,22.1 L100.6,24.4 L98.3,26.5 L97.0,28.8 L93.8,30.7 L91.0,32.8 L86.8,34.4 L83.0,36.2 L78.3,37.6 L73.1,38.7 L67.7,39.7 L62.1,40.4 L56.3,40.7 L50.4,40.6 L44.5,41.0 L38.8,40.3 L33.4,39.4 L27.7,38.8 L22.6,37.7 L17.9,36.3 L12.7,35.1 L9.7,33.0 L5.2,31.4 L2.8,29.2 L1.0,26.9 L-1.0,24.7 L-2.2,22.4 L-2.1,20.1 L-2.8,17.7 L-1.7,15.3 L-0.5,13.0 L1.9,10.8 L4.8,8.7 L8.0,6.6 L12.1,4.8" vector-effect="non-scaling-stroke"></path></svg></a><a href="@@P:coaching@@">Coaching<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M1.8,13.7 L5.0,11.8 L6.7,9.6 L10.2,7.8 L13.3,5.9 L18.0,4.6 L22.0,3.0 L27.5,2.2 L32.2,0.8 L37.9,0.5 L43.5,0.2 L49.1,-0.1 L54.8,-0.2 L60.3,0.4 L65.9,0.8 L70.9,1.8 L76.0,2.8 L80.8,4.1 L85.1,5.5 L89.1,7.1 L93.1,8.8 L95.6,10.9 L98.5,12.9 L100.3,15.1 L101.4,17.4 L101.9,19.7 L101.2,22.0 L100.5,24.3 L99.3,26.6 L96.7,28.7 L93.5,30.7 L90.7,32.7 L86.9,34.5 L82.3,35.9 L77.6,37.2 L72.7,38.4 L67.6,39.6 L62.1,40.4 L56.3,40.7 L50.4,40.7 L44.6,40.4 L38.9,40.0 L33.0,39.8 L27.7,38.9 L22.5,37.7 L18.0,36.3 L13.6,34.7 L9.6,33.0 L6.2,31.1 L2.7,29.2 L0.8,27.0 L-1.3,24.8 L-2.1,22.4 L-2.7,20.1 L-2.7,17.7 L-1.9,15.3 L0.6,13.1 L1.7,10.7 L4.7,8.6 L8.2,6.7 L12.6,5.0" vector-effect="non-scaling-stroke"></path></svg></a><a href="@@P:contact@@">Contact<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M1.8,13.7 L5.0,11.8 L6.7,9.6 L10.2,7.8 L13.3,5.9 L18.0,4.6 L22.0,3.0 L27.5,2.2 L32.2,0.8 L37.9,0.5 L43.5,0.2 L49.1,-0.1 L54.8,-0.2 L60.3,0.4 L65.9,0.8 L70.9,1.8 L76.0,2.8 L80.8,4.1 L85.1,5.5 L89.1,7.1 L93.1,8.8 L95.6,10.9 L98.5,12.9 L100.3,15.1 L101.4,17.4 L101.9,19.7 L101.2,22.0 L100.5,24.3 L99.3,26.6 L96.7,28.7 L93.5,30.7 L90.7,32.7 L86.9,34.5 L82.3,35.9 L77.6,37.2 L72.7,38.4 L67.6,39.6 L62.1,40.4 L56.3,40.7 L50.4,40.7 L44.6,40.4 L38.9,40.0 L33.0,39.8 L27.7,38.9 L22.5,37.7 L18.0,36.3 L13.6,34.7 L9.6,33.0 L6.2,31.1 L2.7,29.2 L0.8,27.0 L-1.3,24.8 L-2.1,22.4 L-2.7,20.1 L-2.7,17.7 L-1.9,15.3 L0.6,13.1 L1.7,10.7 L4.7,8.6 L8.2,6.7 L12.6,5.0" vector-effect="non-scaling-stroke"></path></svg></a></nav></header>
+<header class="bar"><a class="me" href="https://hearmelissa.com/" aria-label="Melissa Medína, home" style="display:flex;align-items:center;gap:14px;margin-right:auto"><img src="@@A:images/logo-white.png@@" alt="" width="40" height="40" style="width:40px;height:40px"></a><nav><a href="@@P:hire@@">Hire me<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M2.5,13.8 L4.8,11.8 L6.8,9.7 L10.4,7.9 L13.8,6.1 L17.4,4.3 L22.7,3.4 L27.4,2.1 L32.3,1.0 L38.0,0.7 L43.5,0.2 L49.1,-0.4 L54.8,-0.4 L60.3,0.3 L65.8,0.9 L71.5,1.3 L76.2,2.7 L81.2,3.8 L85.5,5.3 L89.5,7.0 L93.3,8.8 L96.3,10.7 L98.3,12.9 L100.2,15.1 L101.2,17.4 L101.5,19.7 L100.9,22.0 L99.8,24.3 L98.4,26.5 L97.2,28.8 L94.2,30.8 L90.2,32.5 L87.3,34.6 L82.4,35.9 L78.1,37.5 L72.9,38.5 L67.4,39.4 L61.9,40.0 L56.2,40.7 L50.4,40.7 L44.5,40.8 L38.7,40.4 L33.0,39.9 L27.4,39.0 L22.4,37.8 L17.2,36.6 L13.2,34.9 L8.8,33.3 L5.4,31.3 L2.4,29.3 L1.0,26.9 L-1.3,24.8 L-2.3,22.4 L-2.0,20.1 L-2.2,17.7 L-1.5,15.3 L0.8,13.2 L3.0,11.0 L5.1,8.7 L8.7,6.8 L12.0,4.8" vector-effect="non-scaling-stroke"></path></svg></a><a href="@@P:fans@@">Fans &amp; press<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M2.8,13.9 L4.4,11.7 L7.4,9.8 L9.8,7.7 L14.1,6.2 L17.8,4.5 L22.0,3.0 L27.3,2.1 L32.2,0.8 L37.8,0.3 L43.4,-0.1 L49.1,-0.3 L54.8,-0.2 L60.4,0.3 L66.2,0.5 L71.2,1.6 L76.7,2.4 L81.4,3.7 L84.9,5.6 L89.1,7.1 L92.7,8.9 L96.1,10.8 L97.5,13.0 L99.9,15.2 L100.6,17.4 L101.7,19.7 L101.7,22.1 L100.6,24.4 L98.3,26.5 L97.0,28.8 L93.8,30.7 L91.0,32.8 L86.8,34.4 L83.0,36.2 L78.3,37.6 L73.1,38.7 L67.7,39.7 L62.1,40.4 L56.3,40.7 L50.4,40.6 L44.5,41.0 L38.8,40.3 L33.4,39.4 L27.7,38.8 L22.6,37.7 L17.9,36.3 L12.7,35.1 L9.7,33.0 L5.2,31.4 L2.8,29.2 L1.0,26.9 L-1.0,24.7 L-2.2,22.4 L-2.1,20.1 L-2.8,17.7 L-1.7,15.3 L-0.5,13.0 L1.9,10.8 L4.8,8.7 L8.0,6.6 L12.1,4.8" vector-effect="non-scaling-stroke"></path></svg></a><a href="@@P:coaching@@">Coaching<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M1.8,13.7 L5.0,11.8 L6.7,9.6 L10.2,7.8 L13.3,5.9 L18.0,4.6 L22.0,3.0 L27.5,2.2 L32.2,0.8 L37.9,0.5 L43.5,0.2 L49.1,-0.1 L54.8,-0.2 L60.3,0.4 L65.9,0.8 L70.9,1.8 L76.0,2.8 L80.8,4.1 L85.1,5.5 L89.1,7.1 L93.1,8.8 L95.6,10.9 L98.5,12.9 L100.3,15.1 L101.4,17.4 L101.9,19.7 L101.2,22.0 L100.5,24.3 L99.3,26.6 L96.7,28.7 L93.5,30.7 L90.7,32.7 L86.9,34.5 L82.3,35.9 L77.6,37.2 L72.7,38.4 L67.6,39.6 L62.1,40.4 L56.3,40.7 L50.4,40.7 L44.6,40.4 L38.9,40.0 L33.0,39.8 L27.7,38.9 L22.5,37.7 L18.0,36.3 L13.6,34.7 L9.6,33.0 L6.2,31.1 L2.7,29.2 L0.8,27.0 L-1.3,24.8 L-2.1,22.4 L-2.7,20.1 L-2.7,17.7 L-1.9,15.3 L0.6,13.1 L1.7,10.7 L4.7,8.6 L8.2,6.7 L12.6,5.0" vector-effect="non-scaling-stroke"></path></svg></a><a href="@@P:contact@@">Contact<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M1.8,13.7 L5.0,11.8 L6.7,9.6 L10.2,7.8 L13.3,5.9 L18.0,4.6 L22.0,3.0 L27.5,2.2 L32.2,0.8 L37.9,0.5 L43.5,0.2 L49.1,-0.1 L54.8,-0.2 L60.3,0.4 L65.9,0.8 L70.9,1.8 L76.0,2.8 L80.8,4.1 L85.1,5.5 L89.1,7.1 L93.1,8.8 L95.6,10.9 L98.5,12.9 L100.3,15.1 L101.4,17.4 L101.9,19.7 L101.2,22.0 L100.5,24.3 L99.3,26.6 L96.7,28.7 L93.5,30.7 L90.7,32.7 L86.9,34.5 L82.3,35.9 L77.6,37.2 L72.7,38.4 L67.6,39.6 L62.1,40.4 L56.3,40.7 L50.4,40.7 L44.6,40.4 L38.9,40.0 L33.0,39.8 L27.7,38.9 L22.5,37.7 L18.0,36.3 L13.6,34.7 L9.6,33.0 L6.2,31.1 L2.7,29.2 L0.8,27.0 L-1.3,24.8 L-2.1,22.4 L-2.7,20.1 L-2.7,17.7 L-1.9,15.3 L0.6,13.1 L1.7,10.7 L4.7,8.6 L8.2,6.7 L12.6,5.0" vector-effect="non-scaling-stroke"></path></svg></a></nav></header>
 <p class="slate">FADE IN:</p>
 <p class="tc">FINAL DRAFT</p>
 <div class="title"><h1 aria-label="Melissa Medína"><span class="l1">Melissa</span><span class="l2">Medína<svg class="heart" viewBox="0 0 80 72" aria-hidden="true"><path class="o" d="M40 66 C 14 46, 2 30, 8 16 C 14 2, 34 4, 40 20 C 46 4, 66 2, 72 16 C 78 30, 64 48, 40 66"></path><path class="f" d="M14 18 L30 10 M11 27 L38 14 M13 36 L50 16 M18 44 L62 14 M24 51 L68 22 M30 57 L70 31 M36 62 L64 42"></path></svg></span></h1><span class="script">global voice actor</span><span class="sub">Also: VO director <b>·</b> Singer</span></div>
@@ -385,13 +385,13 @@ function build(node, scope) {
   const isSvg = node.namespaceURI === 'http://www.w3.org/2000/svg';
   return h(isSvg ? node.tagName : tag, props, ...(tag === 'template' ? [] : kids(node, scope)));
 }
-// #links: scroll to the section ourselves so Carrd doesn't hijack them
+// JUMP LINKS: links with data-jump scroll down this page; the address never changes
 document.addEventListener('click', (e) => {
-  const a = e.target.closest && e.target.closest('#hm-home a[href*="#"]');
-  if (!a) return; const id = a.getAttribute('href').split('#').pop(); if (!id) { e.preventDefault(); return; }
-  const el = document.getElementById('hm-home').querySelector('#' + CSS.escape(id)); if (!el) return;
+  const a = e.target.closest && e.target.closest('#hm-home a[data-jump]'); if (!a) return;
   e.preventDefault(); e.stopPropagation();
-  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const id = a.dataset.jump; if (!id) return;
+  const el = document.getElementById('hm-home').querySelector('#' + CSS.escape(id));
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }, true);
 window.__hmBoot_home = (Component) => {
   const tpl = document.getElementById('hm-tpl-home').content;
@@ -472,5 +472,55 @@ class Component extends DCLogic {
 }
 
 window.__hmBoot_home(Component);
+
+
+/* ========================================================================
+   6. LINK CLEANER  (keeps every link a full, clean address)
+   Page links become https://hearmelissa.com/#hire etc. (Home is just
+   https://hearmelissa.com/). Jump-down-the-page links point at this
+   page's full address and remember where to jump in data-jump, so
+   nothing ever links to a bare #section or to hearmelissa.com/#.
+   ======================================================================== */
+(function () {
+  const SITE = 'https://hearmelissa.com/', KEY = 'home';
+  const PAGES = ['home', 'hire', 'fans', 'coaching', 'contact'];
+  const pageUrl = (k) => (k === 'home' ? SITE : SITE + '#' + k);
+  const own = pageUrl(KEY);
+  const clean = (root) => {
+    root.querySelectorAll('a[href]').forEach((a) => {
+      let h = a.getAttribute('href');
+      if (a.dataset.hmClean === h) return;
+      let hash = null;
+      if (h === '' || h.charAt(0) === '#') hash = h.slice(1);
+      else if (h.indexOf(SITE + '#') === 0) hash = h.slice(SITE.length + 1);
+      else if (h === 'https://hearmelissa.com') h = SITE;
+      if (hash !== null) {
+        if (hash === '' || hash === 'home') h = SITE;
+        else if (PAGES.indexOf(hash) > -1) h = pageUrl(hash);
+        else if (hash.indexOf('#') > -1) { const pr = hash.split('#'); h = pageUrl(pr[0]); a.dataset.go = pr[1]; }
+        else if (hash === 'bsky') { a.style.display = 'none'; h = own; a.dataset.jump = ''; }
+        else { a.dataset.jump = hash; h = own; }
+      }
+      if (h !== a.getAttribute('href')) a.setAttribute('href', h);
+      a.dataset.hmClean = h;
+    });
+  };
+  // links to a spot on ANOTHER page: switch pages, then scroll to the spot
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest && e.target.closest('#hm-' + KEY + ' a[data-go]'); if (a) window.__hmGo = a.dataset.go;
+  }, true);
+  const goTo = (root) => {
+    const id = window.__hmGo; if (!id || !root.getClientRects().length) return;
+    const el = root.querySelector('#' + CSS.escape(id)); if (!el) return;
+    window.__hmGo = null; setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 450);
+  };
+  const start = () => {
+    const root = document.getElementById('hm-' + KEY); if (!root) return setTimeout(start, 200);
+    setInterval(() => goTo(root), 250);
+    clean(root);
+    new MutationObserver(() => clean(root)).observe(root, { childList: true, subtree: true, attributes: true, attributeFilter: ['href'] });
+  };
+  start();
+})();
 
 })();

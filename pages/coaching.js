@@ -54,7 +54,7 @@ window.HM = {
   LINKS: {
     // 'images/char-callis.jpg': 'https://...'
   },
-  PAGES: { home: 'https://hearmelissa.com/#home', hire: 'https://hearmelissa.com/#hire', fans: 'https://hearmelissa.com/#fans', coaching: 'https://hearmelissa.com/#coaching', contact: 'https://hearmelissa.com/#contact' }
+  PAGES: { home: 'https://hearmelissa.com/', hire: 'https://hearmelissa.com/#hire', fans: 'https://hearmelissa.com/#fans', coaching: 'https://hearmelissa.com/#coaching', contact: 'https://hearmelissa.com/#contact' }
 };
 
 
@@ -1054,7 +1054,7 @@ const TPL = `<div class="inkScroll" ref="{{setInk}}"><svg class="inkLine" aria-h
 
 <!-- ========================================================================
      MAILING LIST BAND  (25% off)
-     promoHref is still #signup. Swap it for my real form link when it's ready.
+     promoHref is an email for now. Swap it for my real form link when it's ready.
      ======================================================================== -->
 <section class="oPromo" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px 32px; padding: 34px 48px; background: #E2508C; color: #17110F">
 <div style="display: flex; align-items: center; gap: 18px"><span style="font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: 54px; line-height: 1">25% off</span><p style="margin: 0; max-width: 520px; font-size: 19px; line-height: 1.45">I send out promo codes for 25% off coaching pretty often. Join my mailing list so you don't miss them.</p></div>
@@ -1234,13 +1234,13 @@ function build(node, scope) {
   const isSvg = node.namespaceURI === 'http://www.w3.org/2000/svg';
   return h(isSvg ? node.tagName : tag, props, ...(tag === 'template' ? [] : kids(node, scope)));
 }
-// #links: scroll to the section ourselves so Carrd doesn't hijack them
+// JUMP LINKS: links with data-jump scroll down this page; the address never changes
 document.addEventListener('click', (e) => {
-  const a = e.target.closest && e.target.closest('#hm-coaching a[href*="#"]');
-  if (!a) return; const id = a.getAttribute('href').split('#').pop(); if (!id) { e.preventDefault(); return; }
-  const el = document.getElementById('hm-coaching').querySelector('#' + CSS.escape(id)); if (!el) return;
+  const a = e.target.closest && e.target.closest('#hm-coaching a[data-jump]'); if (!a) return;
   e.preventDefault(); e.stopPropagation();
-  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const id = a.dataset.jump; if (!id) return;
+  const el = document.getElementById('hm-coaching').querySelector('#' + CSS.escape(id));
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }, true);
 window.__hmBoot_coaching = (Component) => {
   const tpl = document.getElementById('hm-tpl-coaching').content;
@@ -1349,7 +1349,7 @@ function spy(nav) {
   if (!nav || nav.__spy) return;
   nav.__spy = true;
   const links = Array.from(nav.querySelectorAll('a[href*="#"]'));
-  const pairs = links.map((a) => [a, (nav.closest('.hmRoot') || document).querySelector('#' + CSS.escape(a.getAttribute('href').split('#').pop()))]).filter((p) => p[1]);
+  const pairs = links.map((a) => [a, (nav.closest('.hmRoot') || document).querySelector('#' + CSS.escape((a.dataset.jump || a.getAttribute('href').split('#').pop())))]).filter((p) => p[1]);
   const mark = (a) => links.forEach((l) => l.classList.toggle('on', l === a));
   let raf = 0;
   const check = () => {
@@ -1517,8 +1517,8 @@ class Component extends DCLogic {
         { k: 'Workshop', v: 'Both: a lecture, then a workout. Usually the longest.', bg: '#7A3A6E', line: '#7A3A6E' }
       ].map((g, i, all) => ({ ...g, rule: i < all.length - 1 ? '1px solid rgba(243,230,234,0.3)' : '0' })),
       ongoing: {"img": "@@A:images/headshot-smile.jpg@@", "full": true, "fullLabel": "Slots full · check back later", "lede": "One-on-one coaching. Deep, focused work that's also fun, with scripts I write myself to work out your acting chops.", "plans": [{"k": "Weekly", "v": "$100 / session"}, {"k": "Bi-weekly", "v": "$100 / session"}, {"k": "Monthly", "v": "$100 / session"}], "how": ["I teach voice acting the way I wish someone had taught me: generously, honestly, with depth, and with the reasons why. Simple advice often sounds the best, but nuance and a deep understanding of how this all works last the rest of your career.", "I work full-time on AAA games, commercials and more for clients in 23 countries, all from Minnesota. Sure, living in a hub like LA might make things easier (sort of), but there are always trade-offs, and remote voice acting didn't appear with Covid. It's been around a long time and isn't going anywhere, if my resume is any proof. What you need to work remotely is hard work, something unique to offer, and someone to help keep you sane.", "My coaching is best for actors already working and booking regularly. I make a “good” VA f*cking great. I love new talent, but between a full-time VO career and running a post-production studio, I rarely have the time beginners deserve, and the foundations shouldn't be rushed. If you need a coach who can take their time, my coaching referral list on the Scary Good site is a great place to start. I'm here for actors who are used to taking feedback and ready to run with it.", "I care a lot about the people I coach. I'm honest, I'm kind about it, and I'm in your corner the whole way. I don't puke sunshine and rainbows. You get specific feedback instead of “great job, next” or “that's not competitive, try again in six months,” and in this industry, that's rare."], "what": [{"k": "Sessions.", "v": "How they really run, and how to be the actor a director asks for again."}, {"k": "Markets.", "v": "Why the same read lands differently depending on the client and who's on the other side of the glass."}, {"k": "Commercial vs. character.", "v": "Where they split, how they're similar, and what that means for your style and rate."}, {"k": "How spots get made.", "v": "Once you know what a commercial is built to do, you stop guessing."}, {"k": "More you in the read.", "v": "Your timing, your sass, your instincts. It's what makes a take sound like a person, it's what books, and it's what I'm best at."}, {"k": "Script analysis.", "v": "My other specialty. When you truly understand what's happening around your character and trust your imagination, you stop performing emotions and start reacting honestly."}], "diff": [{"k": "Still in the booth", "v": "I'm booking games, animation, commercials and trailers right now, so what you learn is current."}, {"k": "Plain language", "v": "No word salad and no name-dropping. You get ideas you can remember and use mid-session."}, {"k": "Every genre", "v": "I work across nearly all of them, so I can show you how styles connect and where yours fits."}, {"k": "Honest and on your side", "v": "I'm analytical and direct, and I'm rooting for you every step. You'll always know what to try next."}], "whatIntro": "Workouts give you reps. Ongoing coaching gives you detailed feedback customized to you and only you, with your specific goals in mind, to get you where you want to go. That's the difference between coaching and workouts, workshops and the rest. I coach as much for the industry as I do for the skill, and for your mind and heart as much as your talent. Some of what we cover:", "whatOutro": "We meet over time because this is a habit you build. You'll leave with a method you can use on your own. Pats on the back are included too.", "didYouKnow": "Remote VO is decades older than Covid. By the early 2000s, Hal Douglas, one of the most famous movie trailer voices ever, was recording from a small studio on his farm in rural Virginia, sometimes in his pajamas.", "referralHref": "https://scarygood.studio", "waitHref": "mailto:melissamedinavo@gmail.com?subject=Coaching%20waitlist&body=Hi%20Melissa%2C%20please%20add%20me%20to%20the%20coaching%20waitlist.", "payNote": "Pay per session, no packages. Go weekly for a while, monthly when times are hard, or take a break when you need one. All of that is fine.", "still": "I don't always have openings, because my focus is on my own VO career. That's what keeps my coaching current: I've actually been where you're trying to go, which is what I hope you have from any coach."},
-      promoHref: "#signup", // one signup form for everything
-      member: withShots(this, {"show": false, "eyebrow": "New · monthly membership", "name": "Callback Club", "price": "$10", "per": "/ month", "cta": "Join the app waitlist", "href": "#signup", "perks": ["Full access to my VO web app, built for working actors", "First dibs on workshop seats before they open to everyone", "A live monthly Q&A with me, recorded if you can't make it", "New practice scripts added every month"], "story": "This is early days, so the price is low while I find out if anyone really wants it. If that's you, let me know you're interested.", "features": [{"t": "Audition tracker", "l": "Due dates, 7, 3 and 1-day reminders, submitted and booked toggles, and your booking rate."}, {"t": "Payments & invoices", "l": "Send invoices, track agency jobs with agent and manager cuts, and flag late payments at 45, 60 and 90 days."}, {"t": "Script library + the chaos button", "l": "Character and commercial sides to practice with. And the chaos button is back: one click, one random script, no overthinking."}, {"t": "Emotions wheel", "l": "80 emotions with how each one lives in your body and voice, and what's under the surface."}, {"t": "To-do lists", "l": "Sections, cards and subtasks for everything your career throws at you."}, {"t": "Focus timer", "l": "Sit down, start the clock, get the auditions out."}, {"t": "Journal", "l": "A private place to collect notes, wins and thoughts."}, {"t": "World clocks", "l": "Know what time it is for that studio in Tokyo before you reply."}], "storyTop": ["Honestly? I'm not sure anyone else will want this. One of my first real jobs was web design, building sites in Dreamweaver in high school, and I never stopped loving it. This app started as something I made for myself, because nothing like it existed and I was tired of handing Google all my stuff. I shared it with a few friends, and they loved it."], "libA": "It's built with love and lots and lots of help from free, public JavaScript, the kind of prebuilt scripts I used to find all over the web on sites like ", "libB": ", then modified by me to work (sorta). It's a web app, so it runs right in your browser on any device. There's nothing to download from an app store, and your data stays on your own device.", "shots": [{"src": "@@A:images/app-emo.webp@@", "alt": "Emotions wheel", "pos": "40% 50%"}, {"src": "@@A:images/app-aud.webp@@", "alt": "Audition tracker", "pos": "0% 30%"}, {"src": "@@A:images/app-todo.webp@@", "alt": "To-do board", "pos": "0% 50%"}, {"src": "@@A:images/app-home.webp@@", "alt": "World clocks and daily inspiration", "pos": "0% 0%"}]}),
+      promoHref: "mailto:melissamedinavo@gmail.com?subject=Mailing%20list&body=Hi%20Melissa%2C%20please%20add%20me%20to%20your%20mailing%20list.", // one signup form for everything
+      member: withShots(this, {"show": false, "eyebrow": "New · monthly membership", "name": "Callback Club", "price": "$10", "per": "/ month", "cta": "Join the app waitlist", "href": "mailto:melissamedinavo@gmail.com?subject=Mailing%20list&body=Hi%20Melissa%2C%20please%20add%20me%20to%20your%20mailing%20list.", "perks": ["Full access to my VO web app, built for working actors", "First dibs on workshop seats before they open to everyone", "A live monthly Q&A with me, recorded if you can't make it", "New practice scripts added every month"], "story": "This is early days, so the price is low while I find out if anyone really wants it. If that's you, let me know you're interested.", "features": [{"t": "Audition tracker", "l": "Due dates, 7, 3 and 1-day reminders, submitted and booked toggles, and your booking rate."}, {"t": "Payments & invoices", "l": "Send invoices, track agency jobs with agent and manager cuts, and flag late payments at 45, 60 and 90 days."}, {"t": "Script library + the chaos button", "l": "Character and commercial sides to practice with. And the chaos button is back: one click, one random script, no overthinking."}, {"t": "Emotions wheel", "l": "80 emotions with how each one lives in your body and voice, and what's under the surface."}, {"t": "To-do lists", "l": "Sections, cards and subtasks for everything your career throws at you."}, {"t": "Focus timer", "l": "Sit down, start the clock, get the auditions out."}, {"t": "Journal", "l": "A private place to collect notes, wins and thoughts."}, {"t": "World clocks", "l": "Know what time it is for that studio in Tokyo before you reply."}], "storyTop": ["Honestly? I'm not sure anyone else will want this. One of my first real jobs was web design, building sites in Dreamweaver in high school, and I never stopped loving it. This app started as something I made for myself, because nothing like it existed and I was tired of handing Google all my stuff. I shared it with a few friends, and they loved it."], "libA": "It's built with love and lots and lots of help from free, public JavaScript, the kind of prebuilt scripts I used to find all over the web on sites like ", "libB": ", then modified by me to work (sorta). It's a web app, so it runs right in your browser on any device. There's nothing to download from an app store, and your data stays on your own device.", "shots": [{"src": "@@A:images/app-emo.webp@@", "alt": "Emotions wheel", "pos": "40% 50%"}, {"src": "@@A:images/app-aud.webp@@", "alt": "Audition tracker", "pos": "0% 30%"}, {"src": "@@A:images/app-todo.webp@@", "alt": "To-do board", "pos": "0% 50%"}, {"src": "@@A:images/app-home.webp@@", "alt": "World clocks and daily inspiration", "pos": "0% 0%"}]}),
       newHere: "New here? Start with a group class. It’s the easiest way to work with me while ongoing coaching is full.",
       faq: [{"q": "I'm new here. Where should I start?", "a": "A group class is the best way in. My ongoing coaching and consultations fill up, so classes and career “therapy” sessions are the easiest way to work with me."}, {"q": "Where do sessions happen?", "a": "Everything happens online over Google Meet. All times on this page are Central."}, {"q": "When do you coach?", "a": "Mostly evenings, Central time. I can sometimes do daytime sessions when needed. No weekends, unless we talk about an exception."}, {"q": "Do I need a fancy setup?", "a": "Nope. Some of my students practice on their phone in the backyard. Do what works for you. You do need to be able to read at full voice and yell when a script calls for it (commercial is the exception)."}, {"q": "Are sessions recorded?", "a": "I don't record sessions, but I encourage you to record yourself and your reads. Please don't record me, our screen, or my teaching materials, since those are copyrighted. If you need to record because of a disability, for assistive tech, just let me know and we'll make it work. No AI assistants or note-takers in workshops, workouts, lectures or coaching, please."}, {"q": "Do I have to buy a package?", "a": "In THIS economy?! No. Ongoing coaching is paid per session. Go weekly for a while, monthly when times are hard, or take a break when you need one."}, {"q": "What if I need to cancel?", "a": "Cancellations are fine up to 24 hours before your session. You can always reschedule a paid session through your confirmation link, so you don't lose it. Last-minute cancellations aren't refundable."}, {"q": "Do you ever offer discounts?", "a": "Yes! I send out 25% off promo codes for coaching pretty often. Join my mailing list so you don't miss them."}, {"q": "I'm a beginner. Can I still work with you?", "a": "I love new talent, but I rarely have the time beginners deserve, and the foundations shouldn't be rushed. Check my coaching referral list for great coaches who can take their time with you."}, {"q": "Do you ever turn down students?", "a": "Short answer: yes. Longer answer: sometimes I can tell we won't be a good fit, and I'm half of the equation. I reserve the right to decline coaching to anyone, no explanation needed."}],
       offers: oneOnOne().filter((o) => o.status !== 'hidden').map((o, i) => decorate(o, 'o', i)),
@@ -1542,5 +1542,55 @@ class Component extends DCLogic {
 }
 
 window.__hmBoot_coaching(Component);
+
+
+/* ========================================================================
+   6. LINK CLEANER  (keeps every link a full, clean address)
+   Page links become https://hearmelissa.com/#hire etc. (Home is just
+   https://hearmelissa.com/). Jump-down-the-page links point at this
+   page's full address and remember where to jump in data-jump, so
+   nothing ever links to a bare #section or to hearmelissa.com/#.
+   ======================================================================== */
+(function () {
+  const SITE = 'https://hearmelissa.com/', KEY = 'coaching';
+  const PAGES = ['home', 'hire', 'fans', 'coaching', 'contact'];
+  const pageUrl = (k) => (k === 'home' ? SITE : SITE + '#' + k);
+  const own = pageUrl(KEY);
+  const clean = (root) => {
+    root.querySelectorAll('a[href]').forEach((a) => {
+      let h = a.getAttribute('href');
+      if (a.dataset.hmClean === h) return;
+      let hash = null;
+      if (h === '' || h.charAt(0) === '#') hash = h.slice(1);
+      else if (h.indexOf(SITE + '#') === 0) hash = h.slice(SITE.length + 1);
+      else if (h === 'https://hearmelissa.com') h = SITE;
+      if (hash !== null) {
+        if (hash === '' || hash === 'home') h = SITE;
+        else if (PAGES.indexOf(hash) > -1) h = pageUrl(hash);
+        else if (hash.indexOf('#') > -1) { const pr = hash.split('#'); h = pageUrl(pr[0]); a.dataset.go = pr[1]; }
+        else if (hash === 'bsky') { a.style.display = 'none'; h = own; a.dataset.jump = ''; }
+        else { a.dataset.jump = hash; h = own; }
+      }
+      if (h !== a.getAttribute('href')) a.setAttribute('href', h);
+      a.dataset.hmClean = h;
+    });
+  };
+  // links to a spot on ANOTHER page: switch pages, then scroll to the spot
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest && e.target.closest('#hm-' + KEY + ' a[data-go]'); if (a) window.__hmGo = a.dataset.go;
+  }, true);
+  const goTo = (root) => {
+    const id = window.__hmGo; if (!id || !root.getClientRects().length) return;
+    const el = root.querySelector('#' + CSS.escape(id)); if (!el) return;
+    window.__hmGo = null; setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 450);
+  };
+  const start = () => {
+    const root = document.getElementById('hm-' + KEY); if (!root) return setTimeout(start, 200);
+    setInterval(() => goTo(root), 250);
+    clean(root);
+    new MutationObserver(() => clean(root)).observe(root, { childList: true, subtree: true, attributes: true, attributeFilter: ['href'] });
+  };
+  start();
+})();
 
 })();

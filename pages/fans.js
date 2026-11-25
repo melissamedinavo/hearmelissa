@@ -54,7 +54,7 @@ window.HM = {
   LINKS: {
     // 'images/char-callis.jpg': 'https://...'
   },
-  PAGES: { home: 'https://hearmelissa.com/#home', hire: 'https://hearmelissa.com/#hire', fans: 'https://hearmelissa.com/#fans', coaching: 'https://hearmelissa.com/#coaching', contact: 'https://hearmelissa.com/#contact' }
+  PAGES: { home: 'https://hearmelissa.com/', hire: 'https://hearmelissa.com/#hire', fans: 'https://hearmelissa.com/#fans', coaching: 'https://hearmelissa.com/#coaching', contact: 'https://hearmelissa.com/#contact' }
 };
 
 
@@ -1151,13 +1151,13 @@ function build(node, scope) {
   const isSvg = node.namespaceURI === 'http://www.w3.org/2000/svg';
   return h(isSvg ? node.tagName : tag, props, ...(tag === 'template' ? [] : kids(node, scope)));
 }
-// #links: scroll to the section ourselves so Carrd doesn't hijack them
+// JUMP LINKS: links with data-jump scroll down this page; the address never changes
 document.addEventListener('click', (e) => {
-  const a = e.target.closest && e.target.closest('#hm-fans a[href*="#"]');
-  if (!a) return; const id = a.getAttribute('href').split('#').pop(); if (!id) { e.preventDefault(); return; }
-  const el = document.getElementById('hm-fans').querySelector('#' + CSS.escape(id)); if (!el) return;
+  const a = e.target.closest && e.target.closest('#hm-fans a[data-jump]'); if (!a) return;
   e.preventDefault(); e.stopPropagation();
-  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const id = a.dataset.jump; if (!id) return;
+  const el = document.getElementById('hm-fans').querySelector('#' + CSS.escape(id));
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }, true);
 window.__hmBoot_fans = (Component) => {
   const tpl = document.getElementById('hm-tpl-fans').content;
@@ -1297,7 +1297,7 @@ function spy(nav) {
   if (!nav || nav.__spy) return;
   nav.__spy = true;
   const links = Array.from(nav.querySelectorAll('a[href*="#"]'));
-  const pairs = links.map((a) => [a, (nav.closest('.hmRoot') || document).querySelector('#' + CSS.escape(a.getAttribute('href').split('#').pop()))]).filter((p) => p[1]);
+  const pairs = links.map((a) => [a, (nav.closest('.hmRoot') || document).querySelector('#' + CSS.escape((a.dataset.jump || a.getAttribute('href').split('#').pop())))]).filter((p) => p[1]);
   const mark = (a) => links.forEach((l) => l.classList.toggle('on', l === a));
   let raf = 0;
   const check = () => {
@@ -1534,5 +1534,55 @@ const price = { '11x17': '$35' }; // PRINT PRICES: add a size here, like '8x10':
 }
 
 window.__hmBoot_fans(Component);
+
+
+/* ========================================================================
+   6. LINK CLEANER  (keeps every link a full, clean address)
+   Page links become https://hearmelissa.com/#hire etc. (Home is just
+   https://hearmelissa.com/). Jump-down-the-page links point at this
+   page's full address and remember where to jump in data-jump, so
+   nothing ever links to a bare #section or to hearmelissa.com/#.
+   ======================================================================== */
+(function () {
+  const SITE = 'https://hearmelissa.com/', KEY = 'fans';
+  const PAGES = ['home', 'hire', 'fans', 'coaching', 'contact'];
+  const pageUrl = (k) => (k === 'home' ? SITE : SITE + '#' + k);
+  const own = pageUrl(KEY);
+  const clean = (root) => {
+    root.querySelectorAll('a[href]').forEach((a) => {
+      let h = a.getAttribute('href');
+      if (a.dataset.hmClean === h) return;
+      let hash = null;
+      if (h === '' || h.charAt(0) === '#') hash = h.slice(1);
+      else if (h.indexOf(SITE + '#') === 0) hash = h.slice(SITE.length + 1);
+      else if (h === 'https://hearmelissa.com') h = SITE;
+      if (hash !== null) {
+        if (hash === '' || hash === 'home') h = SITE;
+        else if (PAGES.indexOf(hash) > -1) h = pageUrl(hash);
+        else if (hash.indexOf('#') > -1) { const pr = hash.split('#'); h = pageUrl(pr[0]); a.dataset.go = pr[1]; }
+        else if (hash === 'bsky') { a.style.display = 'none'; h = own; a.dataset.jump = ''; }
+        else { a.dataset.jump = hash; h = own; }
+      }
+      if (h !== a.getAttribute('href')) a.setAttribute('href', h);
+      a.dataset.hmClean = h;
+    });
+  };
+  // links to a spot on ANOTHER page: switch pages, then scroll to the spot
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest && e.target.closest('#hm-' + KEY + ' a[data-go]'); if (a) window.__hmGo = a.dataset.go;
+  }, true);
+  const goTo = (root) => {
+    const id = window.__hmGo; if (!id || !root.getClientRects().length) return;
+    const el = root.querySelector('#' + CSS.escape(id)); if (!el) return;
+    window.__hmGo = null; setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 450);
+  };
+  const start = () => {
+    const root = document.getElementById('hm-' + KEY); if (!root) return setTimeout(start, 200);
+    setInterval(() => goTo(root), 250);
+    clean(root);
+    new MutationObserver(() => clean(root)).observe(root, { childList: true, subtree: true, attributes: true, attributeFilter: ['href'] });
+  };
+  start();
+})();
 
 })();

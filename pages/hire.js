@@ -54,7 +54,7 @@ window.HM = {
   LINKS: {
     // 'images/char-callis.jpg': 'https://...'
   },
-  PAGES: { home: '#home', hire: '#hire', fans: '#fans', coaching: '#coaching', contact: '#contact' }
+  PAGES: { home: 'https://hearmelissa.com/#home', hire: 'https://hearmelissa.com/#hire', fans: 'https://hearmelissa.com/#fans', coaching: 'https://hearmelissa.com/#coaching', contact: 'https://hearmelissa.com/#contact' }
 };
 
 
@@ -65,6 +65,13 @@ const HM_CSS = `/* FULL WIDTH: breaks my page out of Carrd's narrow center colum
    so it fills the whole browser window, edge to edge. */
 #hm-hire{width:100vw !important;max-width:100vw !important;position:relative !important;left:50% !important;margin-left:-50vw !important;margin-right:0 !important}
 html,body{overflow-x:hidden}
+/* BIG SCREENS: everything scales up a bit on wide monitors so the
+   content isn't a skinny strip in the middle. Bigger zoom = bigger page. */
+@media (min-width:1600px){#hm-hire > div{zoom:1.15}}
+@media (min-width:1850px){#hm-hire > div{zoom:1.3}}
+@media (min-width:2100px){#hm-hire > div{zoom:1.45}}
+@media (min-width:2400px){#hm-hire > div{zoom:1.65}}
+@media (min-width:2800px){#hm-hire > div{zoom:1.9}}
 /* NO INNER SCROLL BOX: the browser page scrolls, not a box inside it. */
 #hm-hire .h2m,#hm-hire .inkScroll{height:auto !important;max-height:none !important;overflow:visible !important}
 
@@ -621,11 +628,11 @@ const TPL = `<div class="inkScroll" ref="{{setInk}}"><svg class="inkLine" aria-h
      ======================================================================== -->
 <!-- ========================================================================
      SHORTCUT MENU  (the little sticky bar that jumps around this page)
-     Each link points at a section id, like href="#roles" goes to id="roles".
+     Each link points at a section id, like href="https://hearmelissa.com/#roles" goes to id="roles".
      Add a section? Add a link here with its id. Delete one? Delete its link too,
      or it'll jump to nowhere.
      ======================================================================== -->
-<nav class="jump hSub" ref="{{setJump}}" aria-label="On this page" style="position: sticky; top: 0; z-index: 30; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 6px 6px; padding: 12px 48px; background: #4E1F45; box-shadow: 0 8px 24px -14px rgba(0,0,0,0.5); font-family: 'Jost', sans-serif; font-weight: 500; font-size: 11.5px; letter-spacing: 0.24em; text-transform: uppercase; color: #F3E6EA"><button type="button" class="jBtn" aria-label="Menu: sections on this page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7.2h15.5 M4 12.1h11.5 M4 17h14"></path></svg><span>Menu</span></button><span class="jPage" aria-hidden="true"><i></i>Hire me</span><a href="#demos" style="text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 3px">Demos</a><a href="#roles" style="text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 3px">Roles</a><a href="#credits" style="text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 3px">Credits</a><a href="#booking" style="text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 3px">Bio &amp; booking</a><a href="#studio" style="text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 3px">Studio</a><a href="#direction" style="text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 3px">Direction</a><a href="#commercial" style="text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 3px">Commercial</a><a href="#more" style="text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 3px">More work</a><a href="#appearances" style="text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 3px">Appearances</a></nav>
+<nav class="jump hSub" ref="{{setJump}}" aria-label="On this page" style="position: sticky; top: 0; z-index: 30; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 6px 6px; padding: 12px 48px; background: #4E1F45; box-shadow: 0 8px 24px -14px rgba(0,0,0,0.5); font-family: 'Jost', sans-serif; font-weight: 500; font-size: 11.5px; letter-spacing: 0.24em; text-transform: uppercase; color: #F3E6EA"><button type="button" class="jBtn" aria-label="Menu: sections on this page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7.2h15.5 M4 12.1h11.5 M4 17h14"></path></svg><span>Menu</span></button><span class="jPage" aria-hidden="true"><i></i>Hire me</span><a href="https://hearmelissa.com/#demos" style="text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 3px">Demos</a><a href="https://hearmelissa.com/#roles" style="text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 3px">Roles</a><a href="https://hearmelissa.com/#credits" style="text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 3px">Credits</a><a href="https://hearmelissa.com/#booking" style="text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 3px">Bio &amp; booking</a><a href="https://hearmelissa.com/#studio" style="text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 3px">Studio</a><a href="https://hearmelissa.com/#direction" style="text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 3px">Direction</a><a href="https://hearmelissa.com/#commercial" style="text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 3px">Commercial</a><a href="https://hearmelissa.com/#more" style="text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 3px">More work</a><a href="https://hearmelissa.com/#appearances" style="text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 3px">Appearances</a></nav>
 
 
 <!-- ========================================================================
@@ -883,7 +890,7 @@ const TPL = `<div class="inkScroll" ref="{{setInk}}"><svg class="inkLine" aria-h
 <section id="music" style="position: relative; padding: 80px 48px 70px"><span class="slug">INT. RECORDING STUDIO. NIGHT.</span>
 <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px; border-bottom: 1px solid rgba(var(--rgb),0.6); padding-bottom: 14px">
 <h2 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 400; font-size: 64px; line-height: 1">Music<svg class="hcirc" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M3.0,13.9 L3.6,11.6 L7.2,9.8 L9.6,7.7 L14.1,6.2 L17.9,4.6 L22.0,2.9 L26.9,1.7 L32.1,0.8 L37.9,0.4 L43.5,0.2 L49.1,-0.3 L54.7,0.1 L60.2,0.5 L65.8,0.9 L71.4,1.4 L76.6,2.4 L81.1,3.9 L85.7,5.3 L89.3,7.1 L93.6,8.7 L95.8,10.9 L98.3,12.9 L99.4,15.2 L100.8,17.4 L102.0,19.7 L101.3,22.0 L100.0,24.3 L98.3,26.5 L97.6,28.9 L94.0,30.8 L90.6,32.7 L87.1,34.5 L83.0,36.2 L78.1,37.5 L72.8,38.5 L67.5,39.5 L61.9,40.0 L56.3,40.8 L50.4,41.0 L44.5,41.1 L38.8,40.3 L33.2,39.6 L27.2,39.3 L22.0,38.1 L17.8,36.3 L12.9,35.0 L9.5,33.0 L5.1,31.4 L2.5,29.2 L0.9,27.0 L-2.5,24.9 L-3.0,22.5 L-4.1,20.1 L-2.5,17.7 L-2.7,15.2 L-0.5,13.0 L2.4,10.8 L4.6,8.6 L8.0,6.6 L12.8,5.1" vector-effect="non-scaling-stroke"></path></svg></h2>
-<a href="#booking" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; border: 1px solid var(--ink); text-decoration: none; font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase">Let's collaborate</a>
+<a href="https://hearmelissa.com/#booking" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; border: 1px solid var(--ink); text-decoration: none; font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase">Let's collaborate</a>
 </div>
 <p style="margin: 18px 0 0; max-width: 760px; font-size: 19px; line-height: 1.55; color: var(--soft)">I'm not a touring singer anymore, but I still sing &amp; collaborate with composers for games &amp; animation. Opera, musical theater, pop and folk, in English, Spanish and other languages, including fantasy languages and cinematic vocalise.</p>
 
@@ -1112,8 +1119,8 @@ function build(node, scope) {
 }
 // #links: scroll to the section ourselves so Carrd doesn't hijack them
 document.addEventListener('click', (e) => {
-  const a = e.target.closest && e.target.closest('#hm-hire a[href^="#"]');
-  if (!a) return; const id = a.getAttribute('href').slice(1); if (!id) { e.preventDefault(); return; }
+  const a = e.target.closest && e.target.closest('#hm-hire a[href*="#"]');
+  if (!a) return; const id = a.getAttribute('href').split('#').pop(); if (!id) { e.preventDefault(); return; }
   const el = document.getElementById('hm-hire').querySelector('#' + CSS.escape(id)); if (!el) return;
   e.preventDefault(); e.stopPropagation();
   el.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -1128,8 +1135,13 @@ window.__hmBoot_hire = (Component) => {
     render() { return h('div', null, ...kids(tpl, [this.logic.renderVals()])); }
   }
   // Carrd hides the sections I'm not on. Only start this page once its section is showing.
-  const go = () => { if (root.getClientRects().length) { clearInterval(t); render(h(Host), root); } };
-  const t = setInterval(go, 300); go();
+  let on = false;
+  const go = () => {
+    const vis = root.getClientRects().length > 0;
+    if (vis && !on) { on = true; render(h(Host), root); }
+    else if (!vis && on) { on = false; render(null, root); root.innerHTML = ''; }
+  };
+  setInterval(go, 250); go();
 };
 
 
@@ -1528,8 +1540,8 @@ const REEL_ID = 'F93S3Hjf6zQ'; // REEL: just the YouTube ID (the part after watc
 function spy(nav) {
   if (!nav || nav.__spy) return;
   nav.__spy = true;
-  const links = Array.from(nav.querySelectorAll('a[href^="#"]'));
-  const pairs = links.map((a) => [a, (nav.closest('.hmRoot') || document).querySelector('#' + CSS.escape(a.getAttribute('href').slice(1)))]).filter((p) => p[1]);
+  const links = Array.from(nav.querySelectorAll('a[href*="#"]'));
+  const pairs = links.map((a) => [a, (nav.closest('.hmRoot') || document).querySelector('#' + CSS.escape(a.getAttribute('href').split('#').pop()))]).filter((p) => p[1]);
   const mark = (a) => links.forEach((l) => l.classList.toggle('on', l === a));
   let raf = 0;
   const check = () => {
@@ -1555,7 +1567,8 @@ function inkSetup(sc) {
   const dot = sc.querySelector('.inkDot');
   const tmp = document.createElementNS(NSv, 'path'); tmp.style.display = 'none'; svg.appendChild(tmp);
   let total = 0, shown = 0, target = 0, raf = 0, stops = [], reveals = [], wx0 = 0, wx1 = 0, wLen = 0;
-  const rel = (el) => { const r = el.getBoundingClientRect(), b = page.getBoundingClientRect(); return { L: r.left - b.left, T: r.top - b.top, R: r.right - b.left, B: r.bottom - b.top, W: r.width, H: r.height }; };
+  const Zf = () => (page.getBoundingClientRect().width / (page.offsetWidth || 1)) || 1;
+  const rel = (el) => { const r = el.getBoundingClientRect(), b = page.getBoundingClientRect(), z = Zf(); return { L: (r.left - b.left) / z, T: (r.top - b.top) / z, R: (r.right - b.left) / z, B: (r.bottom - b.top) / z, W: r.width / z, H: r.height / z }; };
   const build = () => {
     const W = page.offsetWidth, H = page.offsetHeight;
     svg.setAttribute('width', W); svg.setAttribute('height', H); svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
@@ -1600,7 +1613,7 @@ function inkSetup(sc) {
   };
   const lenAtY = (y) => { let best = 0; for (let i = 0; i < stops.length; i++) if (stops[i][1] <= y) best = stops[i][0]; return best; };
   const measure = () => {
-    const rb = sc.getBoundingClientRect(), vh = window.innerHeight; const y = -rb.top + vh * 0.78;
+    const rb = sc.getBoundingClientRect(), vh = window.innerHeight; const y = (-rb.top + vh * 0.78) / Zf();
     target = rb.bottom <= vh + 4 ? total : Math.min(total, Math.max(lenAtY(y), wLen + 60));
     if (!raf) raf = requestAnimationFrame(tick);
   };

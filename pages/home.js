@@ -54,7 +54,7 @@ window.HM = {
   LINKS: {
     // 'images/char-callis.jpg': 'https://...'
   },
-  PAGES: { home: '#home', hire: '#hire', fans: '#fans', coaching: '#coaching', contact: '#contact' }
+  PAGES: { home: 'https://hearmelissa.com/#home', hire: 'https://hearmelissa.com/#hire', fans: 'https://hearmelissa.com/#fans', coaching: 'https://hearmelissa.com/#coaching', contact: 'https://hearmelissa.com/#contact' }
 };
 
 
@@ -65,6 +65,13 @@ const HM_CSS = `/* FULL WIDTH: breaks my page out of Carrd's narrow center colum
    so it fills the whole browser window, edge to edge. */
 #hm-home{width:100vw !important;max-width:100vw !important;position:relative !important;left:50% !important;margin-left:-50vw !important;margin-right:0 !important}
 html,body{overflow-x:hidden}
+/* BIG SCREENS: everything scales up a bit on wide monitors so the
+   content isn't a skinny strip in the middle. Bigger zoom = bigger page. */
+@media (min-width:1600px){#hm-home > div{zoom:1.15}}
+@media (min-width:1850px){#hm-home > div{zoom:1.3}}
+@media (min-width:2100px){#hm-home > div{zoom:1.45}}
+@media (min-width:2400px){#hm-home > div{zoom:1.65}}
+@media (min-width:2800px){#hm-home > div{zoom:1.9}}
 /* NO INNER SCROLL BOX: the browser page scrolls, not a box inside it. */
 #hm-home .h2m,#hm-home .inkScroll{height:auto !important;max-height:none !important;overflow:visible !important}
 
@@ -380,8 +387,8 @@ function build(node, scope) {
 }
 // #links: scroll to the section ourselves so Carrd doesn't hijack them
 document.addEventListener('click', (e) => {
-  const a = e.target.closest && e.target.closest('#hm-home a[href^="#"]');
-  if (!a) return; const id = a.getAttribute('href').slice(1); if (!id) { e.preventDefault(); return; }
+  const a = e.target.closest && e.target.closest('#hm-home a[href*="#"]');
+  if (!a) return; const id = a.getAttribute('href').split('#').pop(); if (!id) { e.preventDefault(); return; }
   const el = document.getElementById('hm-home').querySelector('#' + CSS.escape(id)); if (!el) return;
   e.preventDefault(); e.stopPropagation();
   el.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -396,8 +403,13 @@ window.__hmBoot_home = (Component) => {
     render() { return h('div', null, ...kids(tpl, [this.logic.renderVals()])); }
   }
   // Carrd hides the sections I'm not on. Only start this page once its section is showing.
-  const go = () => { if (root.getClientRects().length) { clearInterval(t); render(h(Host), root); } };
-  const t = setInterval(go, 300); go();
+  let on = false;
+  const go = () => {
+    const vis = root.getClientRects().length > 0;
+    if (vis && !on) { on = true; render(h(Host), root); }
+    else if (!vis && on) { on = false; render(null, root); root.innerHTML = ''; }
+  };
+  setInterval(go, 250); go();
 };
 
 

@@ -54,7 +54,7 @@ window.HM = {
   LINKS: {
     // 'images/char-callis.jpg': 'https://...'
   },
-  PAGES: { home: '#home', hire: '#hire', fans: '#fans', coaching: '#coaching', contact: '#contact' }
+  PAGES: { home: 'https://hearmelissa.com/#home', hire: 'https://hearmelissa.com/#hire', fans: 'https://hearmelissa.com/#fans', coaching: 'https://hearmelissa.com/#coaching', contact: 'https://hearmelissa.com/#contact' }
 };
 
 
@@ -65,6 +65,13 @@ const HM_CSS = `/* FULL WIDTH: breaks my page out of Carrd's narrow center colum
    so it fills the whole browser window, edge to edge. */
 #hm-fans{width:100vw !important;max-width:100vw !important;position:relative !important;left:50% !important;margin-left:-50vw !important;margin-right:0 !important}
 html,body{overflow-x:hidden}
+/* BIG SCREENS: everything scales up a bit on wide monitors so the
+   content isn't a skinny strip in the middle. Bigger zoom = bigger page. */
+@media (min-width:1600px){#hm-fans > div{zoom:1.15}}
+@media (min-width:1850px){#hm-fans > div{zoom:1.3}}
+@media (min-width:2100px){#hm-fans > div{zoom:1.45}}
+@media (min-width:2400px){#hm-fans > div{zoom:1.65}}
+@media (min-width:2800px){#hm-fans > div{zoom:1.9}}
 /* NO INNER SCROLL BOX: the browser page scrolls, not a box inside it. */
 #hm-fans .h2m,#hm-fans .inkScroll{height:auto !important;max-height:none !important;overflow:visible !important}
 
@@ -769,12 +776,12 @@ const TPL = `<div class="inkScroll" ref="{{setInk}}"><svg class="inkLine" aria-h
      ======================================================================== -->
 <!-- ========================================================================
      SHORTCUT MENU  (the little sticky bar that jumps around this page)
-     Each link points at a section id, like href="#roles" goes to id="roles".
+     Each link points at a section id, like href="https://hearmelissa.com/#roles" goes to id="roles".
      Add a section? Add a link here with its id. Delete one? Delete its link too,
      or it'll jump to nowhere.
      ======================================================================== -->
 <nav class="jump hSub" ref="{{setJump}}" aria-label="On this page" style="position: sticky; top: 0; z-index: 30; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 6px 6px; padding: 12px 48px; background: #4E1F45; box-shadow: 0 8px 24px -14px rgba(0,0,0,0.5); font-family: 'Jost', sans-serif; font-weight: 500; font-size: 11.5px; letter-spacing: 0.24em; text-transform: uppercase; color: #F3E6EA"><button type="button" class="jBtn" aria-label="Menu: sections on this page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7.2h15.5 M4 12.1h11.5 M4 17h14"></path></svg><span>Menu</span></button><span class="jPage" aria-hidden="true"><i></i>Fans &amp; press</span>
-<a href="#roles" style="text-decoration: none">Characters</a><a href="#characters" style="text-decoration: none">More characters</a><a href="#prints" style="text-decoration: none">Prints</a><a href="#cons" style="text-decoration: none">Conventions</a><a href="#appearances" style="text-decoration: none">Appearances</a><a href="#other" style="text-decoration: none">Other things</a><a href="#press" style="text-decoration: none">Press kit</a>
+<a href="https://hearmelissa.com/#roles" style="text-decoration: none">Characters</a><a href="https://hearmelissa.com/#characters" style="text-decoration: none">More characters</a><a href="https://hearmelissa.com/#prints" style="text-decoration: none">Prints</a><a href="https://hearmelissa.com/#cons" style="text-decoration: none">Conventions</a><a href="https://hearmelissa.com/#appearances" style="text-decoration: none">Appearances</a><a href="https://hearmelissa.com/#other" style="text-decoration: none">Other things</a><a href="https://hearmelissa.com/#press" style="text-decoration: none">Press kit</a>
 </nav>
 
 
@@ -1146,8 +1153,8 @@ function build(node, scope) {
 }
 // #links: scroll to the section ourselves so Carrd doesn't hijack them
 document.addEventListener('click', (e) => {
-  const a = e.target.closest && e.target.closest('#hm-fans a[href^="#"]');
-  if (!a) return; const id = a.getAttribute('href').slice(1); if (!id) { e.preventDefault(); return; }
+  const a = e.target.closest && e.target.closest('#hm-fans a[href*="#"]');
+  if (!a) return; const id = a.getAttribute('href').split('#').pop(); if (!id) { e.preventDefault(); return; }
   const el = document.getElementById('hm-fans').querySelector('#' + CSS.escape(id)); if (!el) return;
   e.preventDefault(); e.stopPropagation();
   el.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -1162,8 +1169,13 @@ window.__hmBoot_fans = (Component) => {
     render() { return h('div', null, ...kids(tpl, [this.logic.renderVals()])); }
   }
   // Carrd hides the sections I'm not on. Only start this page once its section is showing.
-  const go = () => { if (root.getClientRects().length) { clearInterval(t); render(h(Host), root); } };
-  const t = setInterval(go, 300); go();
+  let on = false;
+  const go = () => {
+    const vis = root.getClientRects().length > 0;
+    if (vis && !on) { on = true; render(h(Host), root); }
+    else if (!vis && on) { on = false; render(null, root); root.innerHTML = ''; }
+  };
+  setInterval(go, 250); go();
 };
 
 
@@ -1284,8 +1296,8 @@ const REEL_ID = 'F93S3Hjf6zQ'; // REEL: just the YouTube ID (the part after watc
 function spy(nav) {
   if (!nav || nav.__spy) return;
   nav.__spy = true;
-  const links = Array.from(nav.querySelectorAll('a[href^="#"]'));
-  const pairs = links.map((a) => [a, (nav.closest('.hmRoot') || document).querySelector('#' + CSS.escape(a.getAttribute('href').slice(1)))]).filter((p) => p[1]);
+  const links = Array.from(nav.querySelectorAll('a[href*="#"]'));
+  const pairs = links.map((a) => [a, (nav.closest('.hmRoot') || document).querySelector('#' + CSS.escape(a.getAttribute('href').split('#').pop()))]).filter((p) => p[1]);
   const mark = (a) => links.forEach((l) => l.classList.toggle('on', l === a));
   let raf = 0;
   const check = () => {
@@ -1310,7 +1322,8 @@ function inkSetup(sc) {
   const dot = sc.querySelector('.inkDot');
   const tmp = document.createElementNS(NSv, 'path'); tmp.style.display = 'none'; svg.appendChild(tmp);
   let total = 0, shown = 0, target = 0, raf = 0, stops = [], reveals = [], wx0 = 0, wx1 = 0, wLen = 0;
-  const rel = (el) => { const r = el.getBoundingClientRect(), b = page.getBoundingClientRect(); return { L: r.left - b.left, T: r.top - b.top, R: r.right - b.left, B: r.bottom - b.top, W: r.width, H: r.height }; };
+  const Zf = () => (page.getBoundingClientRect().width / (page.offsetWidth || 1)) || 1;
+  const rel = (el) => { const r = el.getBoundingClientRect(), b = page.getBoundingClientRect(), z = Zf(); return { L: (r.left - b.left) / z, T: (r.top - b.top) / z, R: (r.right - b.left) / z, B: (r.bottom - b.top) / z, W: r.width / z, H: r.height / z }; };
   const build = () => {
     const W = page.offsetWidth, H = page.offsetHeight;
     svg.setAttribute('width', W); svg.setAttribute('height', H); svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
@@ -1355,7 +1368,7 @@ function inkSetup(sc) {
   };
   const lenAtY = (y) => { let best = 0; for (let i = 0; i < stops.length; i++) if (stops[i][1] <= y) best = stops[i][0]; return best; };
   const measure = () => {
-    const rb = sc.getBoundingClientRect(), vh = window.innerHeight; const y = -rb.top + vh * 0.78;
+    const rb = sc.getBoundingClientRect(), vh = window.innerHeight; const y = (-rb.top + vh * 0.78) / Zf();
     target = rb.bottom <= vh + 4 ? total : Math.min(total, Math.max(lenAtY(y), wLen + 60));
     if (!raf) raf = requestAnimationFrame(tick);
   };

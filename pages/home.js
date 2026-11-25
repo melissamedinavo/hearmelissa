@@ -65,6 +65,8 @@ const HM_CSS = `/* FULL WIDTH: breaks my page out of Carrd's narrow center colum
    so it fills the whole browser window, edge to edge. */
 #hm-home{width:100vw !important;max-width:100vw !important;position:relative !important;left:50% !important;margin-left:-50vw !important;margin-right:0 !important}
 html,body{overflow-x:hidden}
+/* NO INNER SCROLL BOX: the browser page scrolls, not a box inside it. */
+#hm-home .h2m,#hm-home .inkScroll{height:auto !important;max-height:none !important;overflow:visible !important}
 
 @font-face{font-family:'Anastacia';src:url(@@A:fonts/Anastacia.woff2@@) format('woff2');font-display:swap}
 @font-face{font-family:'AnaOne';src:url(@@A:fonts/AnaOne.woff2@@) format('woff2');font-display:swap}

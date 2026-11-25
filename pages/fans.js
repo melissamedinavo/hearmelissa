@@ -65,6 +65,8 @@ const HM_CSS = `/* FULL WIDTH: breaks my page out of Carrd's narrow center colum
    so it fills the whole browser window, edge to edge. */
 #hm-fans{width:100vw !important;max-width:100vw !important;position:relative !important;left:50% !important;margin-left:-50vw !important;margin-right:0 !important}
 html,body{overflow-x:hidden}
+/* NO INNER SCROLL BOX: the browser page scrolls, not a box inside it. */
+#hm-fans .h2m,#hm-fans .inkScroll{height:auto !important;max-height:none !important;overflow:visible !important}
 
 #hm-fans{margin:0;background:#F1E9DC}
 #hm-fans img{-webkit-user-drag:none;user-drag:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;pointer-events:none}

@@ -1502,6 +1502,9 @@ window.__hmBoot_contact(Component);
       a.dataset.hmClean = h;
     });
   };
+  // deep links from anywhere: https://hearmelissa.com/?go=groups#coaching
+  // opens the Coaching page and scrolls to the spot with id="groups"
+  if (!window.__hmGoUsed) { window.__hmGoUsed = true; const q = new URLSearchParams(location.search).get('go'); if (q) window.__hmGo = q; }
   // links to a spot on ANOTHER page: switch pages, then scroll to the spot
   document.addEventListener('click', (e) => {
     const a = e.target.closest && e.target.closest('#hm-' + KEY + ' a[data-go]'); if (a) window.__hmGo = a.dataset.go;

@@ -588,6 +588,20 @@ html,body{overflow-x:hidden}
 #hm-hire .ink.ink .chip:hover{background:#B8232F!important;border-color:#B8232F!important;color:#fff!important}
 @media (max-width:640px){#hm-hire .ink.ink.ink #direction .hSplit{grid-template-columns:minmax(0,1fr)!important;gap:30px!important}#hm-hire .ink.ink .hTwoVid{grid-template-columns:minmax(0,1fr)!important;gap:22px!important}#hm-hire .ink.ink.ink .fastLine{font-size:21px;white-space:nowrap}#hm-hire .ink.ink.ink.ink .hLede[style]{margin-bottom:50px!important}#hm-hire .ink.ink h2,#hm-hire .ink.ink h2[style]{font-size:46px!important}#hm-hire .ink.ink.ink .hLede[style]{font-size:36px!important}#hm-hire .ink.ink .tPlayer{padding:24px 18px}#hm-hire .ink.ink .tPlayer .pnote{display:none}#hm-hire .ink.ink .gPrev{left:-8px}#hm-hire .ink.ink .gNext{right:-8px}#hm-hire .ink.ink .sgHead{font-size:44px}#hm-hire .ink.ink .bioH,#hm-hire .ink.ink .bioH[style]{font-size:32px!important}}
 
+/* ==== Legible headings (Nov 27): section titles in Arlysse instead of script ==== */
+#hm-hire .ink.ink.ink.ink h2,#hm-hire .ink.ink.ink.ink h2[style]{font-family:'Arlysse',sans-serif!important;text-transform:uppercase!important;letter-spacing:0.01em!important;font-size:66px!important;line-height:1!important;-webkit-text-stroke:0!important}
+#hm-hire .ink.ink.ink.ink h3,#hm-hire .ink.ink.ink.ink h3[style],#hm-hire .ink.ink.ink.ink .bioH,#hm-hire .ink.ink.ink.ink .bioH[style]{font-family:'Arlysse',sans-serif!important;text-transform:uppercase!important;letter-spacing:0.02em!important;font-size:30px!important;line-height:1.05!important}
+#hm-hire .ink.ink.ink.ink .hLede,#hm-hire .ink.ink.ink.ink .hLede[style]{font-family:'Arlysse',sans-serif!important;text-transform:uppercase!important;letter-spacing:0.01em!important;font-size:42px!important;line-height:1.05!important;-webkit-text-stroke:0!important}
+#hm-hire .ink.ink.ink.ink .sgHead{font-family:'Arlysse',sans-serif!important;text-transform:uppercase!important;letter-spacing:0.01em!important}
+@media (max-width:820px){#hm-hire .ink.ink.ink.ink h2,#hm-hire .ink.ink.ink.ink h2[style]{font-size:46px!important}#hm-hire .ink.ink.ink.ink .hLede,#hm-hire .ink.ink.ink.ink .hLede[style]{font-size:30px!important}#hm-hire .ink.ink.ink.ink h3,#hm-hire .ink.ink.ink.ink h3[style]{font-size:24px!important}}
+/* the few headings that stay in script */
+#hm-hire .ink.ink.ink.ink.ink .hLede.hScript,#hm-hire .ink.ink.ink.ink.ink .hLede.hScript[style]{font-family:'AnaOne',cursive!important;text-transform:none!important;letter-spacing:0!important;font-size:50px!important;line-height:1.15!important}
+#hm-hire .ink.ink.ink.ink.ink .sgHead.sgScript{font-family:'AnaOne',cursive!important;text-transform:none!important;letter-spacing:0!important}
+@media (max-width:820px){#hm-hire .ink.ink.ink.ink.ink .hLede.hScript,#hm-hire .ink.ink.ink.ink.ink .hLede.hScript[style]{font-size:36px!important}}
+/* blueprint margin notes, like I'm writing in the margins of my script */
+#hm-hire .ink.ink .bpNote{position:absolute;z-index:4;max-width:104px;font-family:'AnaTwo',cursive;font-size:25px;line-height:1.02;color:var(--blue);transform:rotate(-7deg);transform-origin:left top;pointer-events:none;white-space:normal}
+@media (max-width:1100px){#hm-hire .ink.ink .bpNote{display:none}}
+
 
 /* ---- CARRD FIXES (added for the embed) ----
    In the canvas this page scrolled inside a box. On the real site it scrolls with the page. */
@@ -656,7 +670,7 @@ const TPL = `<div class="inkScroll" ref="{{setInk}}"><svg class="inkLine" aria-h
      Plain text. Edit the words right here.
      ======================================================================== -->
 <section class="hSplit" style="padding: 70px 48px 10px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 56px; align-items: start">
-<div style="display: flex; flex-direction: column; gap: 28px"><p class="hLede" style="margin: 0; font-size: 46px; line-height: 1.15">A distinctive voice with <span>real life</span> in it</p><div class="dlg2"><p class="cue">MELISSA</p><p class="par">(grounded, cinematic)</p><p class="line">Grounded, cinematic performances that move audiences around the world, plus every other style your story calls for. You're in the right place.</p></div>
+<div style="display: flex; flex-direction: column; gap: 28px"><p class="hLede hScript" style="margin: 0; font-size: 46px; line-height: 1.15">A distinctive voice with <span>real life</span> in it</p><div class="dlg2"><p class="cue">MELISSA</p><p class="par">(grounded, cinematic)</p><p class="line">Grounded, cinematic performances that move audiences around the world, plus every other style your story calls for. You're in the right place.</p></div>
 <p class="hRange" style="margin: 0; font-size: 18px; line-height: 1.6; color: var(--soft)"><span style="font-family: 'Jost', sans-serif; font-weight: 500; font-size: 10.5px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--acc)">Range, for real</span><br>From heroes across multiverses to cybernetic villains, mothers and daughters at every stage of life, and anime cuties to broody antiheroes. When a project needs a role to feel more human, alive, endearing, complex or deep, I'm often the one they bring in.</p>
 <div id="demos" class="tPlayer"><span class="tape" aria-hidden="true"></span><span class="tape t2" aria-hidden="true"></span><span class="pnote">games first!</span>
 <div style="display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 22px; align-items: center; padding: 18px 22px; border: 1px solid rgba(var(--rgb),0.18); background: linear-gradient(100deg, var(--panel), var(--bg))">
@@ -692,7 +706,7 @@ const TPL = `<div class="inkScroll" ref="{{setInk}}"><svg class="inkLine" aria-h
 </section>
 
 
-<section id="roles" style="padding: 60px 48px 40px"><span class="slug">INT. GREEN ROOM. LATER.</span>
+<section id="roles" style="padding: 60px 48px 40px"><span class="bpNote" aria-hidden="true" style="top: 170px; left: 14px">Callis won me an award. no big deal ;)</span><span class="slug">INT. GREEN ROOM. LATER.</span>
 <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid rgba(var(--rgb),0.6); padding-bottom: 14px">
 <h2 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 400; font-size: 64px; line-height: 1">Roles<svg class="hcirc" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M2.6,13.8 L3.9,11.6 L7.0,9.7 L10.2,7.8 L14.1,6.2 L17.6,4.4 L22.6,3.3 L26.8,1.7 L32.6,1.3 L37.6,0.0 L43.5,0.3 L49.1,-0.2 L54.8,-0.2 L60.6,-0.2 L66.2,0.4 L71.1,1.7 L76.5,2.5 L81.6,3.6 L85.1,5.5 L90.0,6.8 L93.4,8.7 L96.7,10.7 L97.6,13.0 L100.4,15.1 L100.9,17.4 L102.4,19.7 L101.8,22.1 L99.5,24.3 L99.8,26.7 L97.4,28.9 L93.8,30.7 L91.6,33.0 L86.6,34.3 L83.3,36.4 L78.2,37.6 L72.6,38.3 L67.9,39.8 L62.0,40.2 L56.2,40.4 L50.4,40.6 L44.6,40.5 L38.7,40.4 L33.1,39.7 L27.2,39.3 L22.4,37.8 L17.9,36.3 L13.6,34.7 L8.6,33.3 L6.1,31.1 L1.6,29.4 L-0.4,27.1 L-1.7,24.8 L-2.8,22.4 L-2.7,20.1 L-3.6,17.6 L-1.5,15.3 L0.4,13.1 L1.8,10.7 L4.2,8.5 L7.5,6.4 L12.3,4.9" vector-effect="non-scaling-stroke"></path></svg></h2>
 <span style="font-family: 'Jost', sans-serif; font-size: 10.5px; letter-spacing: 0.3em; color: var(--mute)">{{counter}}</span>
@@ -795,7 +809,7 @@ const TPL = `<div class="inkScroll" ref="{{setInk}}"><svg class="inkLine" aria-h
      Studio photo is STUDIO_PHOTO in MY CONTENT. Specs PDF is specsPdf.
      Raw sample audio is rawSrc. All in renderVals.
      ======================================================================== -->
-<section id="studio" style="padding: 26px 48px 36px"><span class="coffee" style="left:-80px;bottom:-90px;transform:rotate(30deg)"></span><span class="slug">INT. HOME STUDIO. NIGHT.</span>
+<section id="studio" style="padding: 26px 48px 36px"><span class="bpNote" aria-hidden="true" style="top: 160px; left: 14px">studio room now. ask me about the closet days</span><span class="coffee" style="left:-80px;bottom:-90px;transform:rotate(30deg)"></span><span class="slug">INT. HOME STUDIO. NIGHT.</span>
 <div class="hStudio" style="display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 18px 32px; align-items: start; padding: 22px 26px; border: 1px solid rgba(var(--rgb),0.2); background: var(--panel)">
 <div style="display: flex; flex-direction: column; gap: 14px">
 <h2 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 400; font-size: 64px; line-height: 1; font-size: 44px">Studio<svg class="hcirc" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M3.1,13.9 L4.6,11.7 L6.4,9.6 L10.2,7.8 L14.1,6.2 L17.6,4.4 L22.6,3.3 L27.2,2.0 L32.6,1.3 L37.7,0.2 L43.5,0.3 L49.1,-0.1 L54.9,-0.5 L60.3,0.5 L65.9,0.8 L71.0,1.7 L76.3,2.7 L81.2,3.8 L86.2,5.1 L90.2,6.8 L92.6,8.9 L96.3,10.7 L98.1,13.0 L99.1,15.2 L100.5,17.4 L101.1,19.7 L101.1,22.0 L101.4,24.4 L99.5,26.7 L96.1,28.6 L94.3,30.8 L90.5,32.6 L86.7,34.4 L83.3,36.3 L77.6,37.2 L73.2,38.8 L67.9,39.9 L61.8,39.9 L56.2,40.6 L50.4,41.1 L44.6,40.5 L38.8,40.4 L33.2,39.6 L27.2,39.3 L22.0,38.1 L17.1,36.7 L13.3,34.9 L9.5,33.0 L4.7,31.5 L3.0,29.2 L0.7,27.0 L-0.8,24.7 L-3.3,22.5 L-3.0,20.1 L-2.2,17.7 L-1.0,15.4 L-0.2,13.0 L2.8,10.9 L5.6,8.9 L8.2,6.7 L12.1,4.8" vector-effect="non-scaling-stroke"></path></svg></h2>
@@ -1026,7 +1040,7 @@ const TPL = `<div class="inkScroll" ref="{{setInk}}"><svg class="inkLine" aria-h
 <section style="padding: 60px 48px 80px">
 <a href="https://scarygood.studio" target="_blank" rel="noopener" style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 28px; align-items: center; padding: 40px 40px; border: 1px solid rgba(var(--rgb),0.35); text-decoration: none">
 <span style="display: flex; flex-direction: column; gap: 14px">
-<span class="sgHead">Need a whole cast?</span>
+<span class="sgHead sgScript">Need a whole cast?</span>
 <span style="font-size: 19px; line-height: 1.5; color: var(--soft); max-width: 720px">I cast and direct it. Our studio handles everything after that: recording, editing, sound design, mixing and original score, start to finish. Celebrity talent included.</span>
 <span style="display: flex; flex-wrap: wrap; gap: 8px"><span class="chip" style="padding: 7px 12px; border: 1px solid rgba(var(--rgb),0.3); font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase">Casting</span><span class="chip" style="padding: 7px 12px; border: 1px solid rgba(var(--rgb),0.3); font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase">Direction</span><span class="chip" style="padding: 7px 12px; border: 1px solid rgba(var(--rgb),0.3); font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase">Recording</span><span class="chip" style="padding: 7px 12px; border: 1px solid rgba(var(--rgb),0.3); font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase">Editing</span><span class="chip" style="padding: 7px 12px; border: 1px solid rgba(var(--rgb),0.3); font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase">Sound design</span><span class="chip" style="padding: 7px 12px; border: 1px solid rgba(var(--rgb),0.3); font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase">Mixing</span><span class="chip" style="padding: 7px 12px; border: 1px solid rgba(var(--rgb),0.3); font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase">Original score</span></span>
 </span>
@@ -1035,7 +1049,7 @@ const TPL = `<div class="inkScroll" ref="{{setInk}}"><svg class="inkLine" aria-h
 </section>
 
 <!-- ===== FOOTER: socials, logo, sign-off ===== -->
-<p class="credit">No AI used. Website lovingly developed by Melissa Medína and <a href="https://dirtylinestudio.com" target="_blank" rel="noopener">Dirtyline Studio</a>, with assets from <a href="https://envato.com" target="_blank" rel="noopener">Envato</a>.</p>
+<p class="credit">No AI used. Website lovingly developed by Melissa Medína, <a href="https://dirtylinestudio.com" target="_blank" rel="noopener">Dirtyline Studio</a> and <a href="https://envato.com" target="_blank" rel="noopener">Envato</a>.</p>
 
 
 <!-- ========================================================================

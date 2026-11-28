@@ -613,6 +613,12 @@ html,body{overflow-x:hidden}
 #hm-hire .ink.ink.ink.ink.ink.ink .mFoot .fri,#hm-hire .ink.ink.ink.ink.ink.ink .mFoot .fri[style]{font-family:'AnaOne',cursive!important;text-transform:none!important;letter-spacing:0!important}
 /* How I teach / How I'm different in the typewriter font */
 #hm-hire .ink.ink.ink.ink.ink.ink #start .sIntro > div > span:first-child,#hm-hire .ink.ink.ink.ink.ink.ink #start .sIntro > div > span:first-child[style]{font-family:'Oldtown','Courier New',monospace!important;text-transform:uppercase!important}
+/* VO direction: text on top, trailers full width below so they're big enough to use */
+#hm-hire .ink.ink.ink.ink.ink.ink #direction .hSplit,#hm-hire .ink.ink.ink.ink.ink.ink #direction .hSplit[style]{grid-template-columns:minmax(0,1fr)!important;gap:44px!important}
+#hm-hire .ink.ink.ink.ink.ink.ink #direction .hTwoVid,#hm-hire .ink.ink.ink.ink.ink.ink #direction .hTwoVid[style]{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:22px!important}
+/* keep the red circle hugging the title */
+#hm-hire .ink.ink.ink.ink.ink.ink #direction h2,#hm-hire .ink.ink.ink.ink.ink.ink #direction h2[style]{display:inline-block!important;align-self:flex-start!important;width:auto!important}
+@media (max-width:820px){#hm-hire .ink.ink.ink.ink.ink.ink #direction .hTwoVid,#hm-hire .ink.ink.ink.ink.ink.ink #direction .hTwoVid[style]{grid-template-columns:minmax(0,1fr)!important}}
 
 
 /* ---- CARRD FIXES (added for the embed) ----

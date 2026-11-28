@@ -532,6 +532,7 @@ window.__hmBoot_home(Component);
     window.__hmGo = null; setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 450);
   };
   const start = () => {
+    const seo = document.getElementById('hm-' + KEY + '-seo'); if (seo) seo.remove();
     const root = document.getElementById('hm-' + KEY); if (!root) return setTimeout(start, 200);
     setInterval(() => goTo(root), 250);
     clean(root);

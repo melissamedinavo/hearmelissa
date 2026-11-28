@@ -961,6 +961,18 @@ html,body{overflow-x:hidden}
 #hm-contact .ink.ink .bpNote{position:absolute;z-index:4;max-width:104px;font-family:'AnaTwo',cursive;font-size:25px;line-height:1.02;color:var(--blue);transform:rotate(-7deg);transform-origin:left top;pointer-events:none;white-space:normal}
 @media (max-width:1100px){#hm-contact .ink.ink .bpNote{display:none}}
 
+/* back to top: small, quiet, always there */
+#hm-contact .toTop,#hm-contact .toTop[style]{position:fixed!important;right:22px!important;bottom:22px!important;z-index:80!important;display:inline-flex!important;align-items:center;gap:6px;font-family:'Oldtown','Courier New',monospace!important;font-size:11px!important;letter-spacing:0.2em!important;text-transform:uppercase!important;color:#EEEAE2!important;background:rgba(20,18,21,0.72)!important;border:1px solid rgba(238,234,226,0.28)!important;border-radius:999px!important;padding:9px 14px!important;text-decoration:none!important;opacity:0.7;transition:opacity .25s,background .25s;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+#hm-contact .toTop:hover,#hm-contact .toTop:focus-visible{opacity:1;background:#B8232F!important}
+@media (max-width:820px){#hm-contact .toTop,#hm-contact .toTop[style]{right:14px!important;bottom:14px!important;padding:8px 12px!important}}
+/* download button on the player: light text on the dark player */
+#hm-contact .ink.ink.ink.ink.ink.ink.ink.ink section:not(#reel) .tPlayer a[download],#hm-contact .ink.ink.ink.ink.ink.ink.ink.ink section:not(#reel) .tPlayer a[download][style],#hm-contact .ink.ink.ink.ink.ink.ink.ink.ink .tPlayer a[download][style]{color:#EEEAE2!important}
+#hm-contact .ink.ink.ink.ink.ink.ink.ink.ink section:not(#reel) .tPlayer a[download][style]:hover{color:#fff!important}
+/* footer sign-off stays in script */
+#hm-contact .ink.ink.ink.ink.ink.ink .mFoot .fri,#hm-contact .ink.ink.ink.ink.ink.ink .mFoot .fri[style]{font-family:'AnaOne',cursive!important;text-transform:none!important;letter-spacing:0!important}
+/* How I teach / How I'm different in the typewriter font */
+#hm-contact .ink.ink.ink.ink.ink.ink #start .sIntro > div > span:first-child,#hm-contact .ink.ink.ink.ink.ink.ink #start .sIntro > div > span:first-child[style]{font-family:'Oldtown','Courier New',monospace!important;text-transform:uppercase!important}
+
 
 /* ---- CARRD FIXES (added for the embed) ----
    In the canvas this page scrolled inside a box. On the real site it scrolls with the page. */
@@ -973,7 +985,7 @@ html,body{overflow-x:hidden}
    3. THE PAGE  (every section in order, each with a note above it)
    Anything in {{double braces}} gets filled in from MY CONTENT below.
    ======================================================================== */
-const TPL = `<div class="inkScroll" ref="{{setInk}}"><svg class="inkLine" aria-hidden="true"><path class="wf" d=""></path><path class="live" d=""></path></svg><div class="inkDot" aria-hidden="true"></div>
+const TPL = `<div class="inkScroll" ref="{{setInk}}"><span id="top" aria-hidden="true"></span><a class="toTop" href="https://hearmelissa.com/#top" aria-label="Back to top">↑ Top</a><svg class="inkLine" aria-hidden="true"><path class="wf" d=""></path><path class="live" d=""></path></svg><div class="inkDot" aria-hidden="true"></div>
 <div class="paper thm dark ink" style="width: 100%; color: var(--ink); font-family: 'Fraunces', Georgia, serif; font-weight: 300; overflow-x: clip">
 
 
@@ -1244,7 +1256,8 @@ function groupClasses() {
     { t: "Commercial group workout", icon: "wave", type: "Workout", len: "2 hours", price: "$100", seats: "6 seats", short: "Everyone reads, everyone gets detailed notes.", href: T + 'commercial-workout-group', status: "open", dates: ['Tue, Dec 8 · 6pm CT', 'Fri, Dec 11 · 11am CT'], paras: [
         "Chasing that unicorn called the \"conversational read\"? I can help. My work with clients from Google to McDonald's to JC Penney and dozens more has given me a few tricks to share. More importantly, I'm here to help you bring yourself to your commercial reads.",
         "We focus on practice with commercial scripts. You'll read, I'll give detailed feedback, and we'll try different directions to find your cozy spot.",
-        "You'll be reading in front of others, but the atmosphere is always supportive and kind, and I keep a close eye on that for your comfort. Prefer to read solo? Book the one-on-one workout."
+        "You'll be reading in front of others, but the atmosphere is always supportive and kind, and I keep a close eye on that for your comfort. Prefer to read solo? Book the one-on-one workout.",
+        "Use promo code SCARYANDBRIGHT for 25% off. Commercial workshops only."
       ] },
     { t: "Mic Voice Must Die! A Physicality Masterclass", icon: "nomic", type: "Workshop", len: "2.5 hours", price: "$75", seats: "", short: "Variety, nuance and acting through your efforts, barks and physicality.", href: T + 'mic-voice-must-die', status: "open", dates: ['Sat, Dec 12 · 12pm CT', 'Wed, Dec 16 · 6pm CT'], paras: ["If you struggle to find variety in your efforts and your reads sound a little too \"polished,\" it's time to ditch the act for authenticity. Join actor and VO director Melissa Medina (Borderlands 4, Granblue Fantasy, Fatal Fury, Aliens, Warframe) for Mic Voice Must Die!. After years on both sides of the glass in action, combat, and narrative sessions, Melissa built this class to share what actually works in the booth when a spreadsheet calls for hits, barks, traversal, and physical shifts. Using breathing techniques, script analysis, and practical booth tools, you'll learn how to bring nuance, depth, variety that gets you called back, and how to act through your efforts (because it's physicality WHILE acting) to deliver reads that pop.", "Each session blends focused lecture with putting the tools into practice through live reads directed by Melissa, and you don't have to read if you're not ready to yet. You can hop on the mic when you feel good or hang back, listen, and take notes at your own pace. Offered at a holiday discount, classes usually sell out. This is an online-only class and is not recorded; for the privacy of our attendees, we do not allow recording or AI assistants."] },
     { t: "Grounded, Not Boring", icon: "anchor", type: "Workshop", len: "", price: "", seats: "", short: "Script analysis for game scripts and audition sides.", href: '', status: "soon", dates: [], paras: [

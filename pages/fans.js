@@ -749,6 +749,18 @@ html,body{overflow-x:hidden}
 #hm-fans .ink.ink .bpNote{position:absolute;z-index:4;max-width:104px;font-family:'AnaTwo',cursive;font-size:25px;line-height:1.02;color:var(--blue);transform:rotate(-7deg);transform-origin:left top;pointer-events:none;white-space:normal}
 @media (max-width:1100px){#hm-fans .ink.ink .bpNote{display:none}}
 
+/* back to top: small, quiet, always there */
+#hm-fans .toTop,#hm-fans .toTop[style]{position:fixed!important;right:22px!important;bottom:22px!important;z-index:80!important;display:inline-flex!important;align-items:center;gap:6px;font-family:'Oldtown','Courier New',monospace!important;font-size:11px!important;letter-spacing:0.2em!important;text-transform:uppercase!important;color:#EEEAE2!important;background:rgba(20,18,21,0.72)!important;border:1px solid rgba(238,234,226,0.28)!important;border-radius:999px!important;padding:9px 14px!important;text-decoration:none!important;opacity:0.7;transition:opacity .25s,background .25s;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+#hm-fans .toTop:hover,#hm-fans .toTop:focus-visible{opacity:1;background:#B8232F!important}
+@media (max-width:820px){#hm-fans .toTop,#hm-fans .toTop[style]{right:14px!important;bottom:14px!important;padding:8px 12px!important}}
+/* download button on the player: light text on the dark player */
+#hm-fans .ink.ink.ink.ink.ink.ink.ink.ink section:not(#reel) .tPlayer a[download],#hm-fans .ink.ink.ink.ink.ink.ink.ink.ink section:not(#reel) .tPlayer a[download][style],#hm-fans .ink.ink.ink.ink.ink.ink.ink.ink .tPlayer a[download][style]{color:#EEEAE2!important}
+#hm-fans .ink.ink.ink.ink.ink.ink.ink.ink section:not(#reel) .tPlayer a[download][style]:hover{color:#fff!important}
+/* footer sign-off stays in script */
+#hm-fans .ink.ink.ink.ink.ink.ink .mFoot .fri,#hm-fans .ink.ink.ink.ink.ink.ink .mFoot .fri[style]{font-family:'AnaOne',cursive!important;text-transform:none!important;letter-spacing:0!important}
+/* How I teach / How I'm different in the typewriter font */
+#hm-fans .ink.ink.ink.ink.ink.ink #start .sIntro > div > span:first-child,#hm-fans .ink.ink.ink.ink.ink.ink #start .sIntro > div > span:first-child[style]{font-family:'Oldtown','Courier New',monospace!important;text-transform:uppercase!important}
+
 
 /* ---- CARRD FIXES (added for the embed) ----
    In the canvas this page scrolled inside a box. On the real site it scrolls with the page. */
@@ -761,7 +773,7 @@ html,body{overflow-x:hidden}
    3. THE PAGE  (every section in order, each with a note above it)
    Anything in {{double braces}} gets filled in from MY CONTENT below.
    ======================================================================== */
-const TPL = `<div class="inkScroll" ref="{{setInk}}"><svg class="inkLine" aria-hidden="true"><path class="wf" d=""></path><path class="live" d=""></path></svg><div class="inkDot" aria-hidden="true"></div>
+const TPL = `<div class="inkScroll" ref="{{setInk}}"><span id="top" aria-hidden="true"></span><a class="toTop" href="https://hearmelissa.com/#top" aria-label="Back to top">↑ Top</a><svg class="inkLine" aria-hidden="true"><path class="wf" d=""></path><path class="live" d=""></path></svg><div class="inkDot" aria-hidden="true"></div>
 <div class="paper thm dark ink" style="width: 100%; color: var(--ink); font-family: 'Fraunces', Georgia, serif; font-weight: 300; overflow-x: clip">
 
 

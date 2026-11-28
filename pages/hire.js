@@ -602,6 +602,18 @@ html,body{overflow-x:hidden}
 #hm-hire .ink.ink .bpNote{position:absolute;z-index:4;max-width:104px;font-family:'AnaTwo',cursive;font-size:25px;line-height:1.02;color:var(--blue);transform:rotate(-7deg);transform-origin:left top;pointer-events:none;white-space:normal}
 @media (max-width:1100px){#hm-hire .ink.ink .bpNote{display:none}}
 
+/* back to top: small, quiet, always there */
+#hm-hire .toTop,#hm-hire .toTop[style]{position:fixed!important;right:22px!important;bottom:22px!important;z-index:80!important;display:inline-flex!important;align-items:center;gap:6px;font-family:'Oldtown','Courier New',monospace!important;font-size:11px!important;letter-spacing:0.2em!important;text-transform:uppercase!important;color:#EEEAE2!important;background:rgba(20,18,21,0.72)!important;border:1px solid rgba(238,234,226,0.28)!important;border-radius:999px!important;padding:9px 14px!important;text-decoration:none!important;opacity:0.7;transition:opacity .25s,background .25s;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+#hm-hire .toTop:hover,#hm-hire .toTop:focus-visible{opacity:1;background:#B8232F!important}
+@media (max-width:820px){#hm-hire .toTop,#hm-hire .toTop[style]{right:14px!important;bottom:14px!important;padding:8px 12px!important}}
+/* download button on the player: light text on the dark player */
+#hm-hire .ink.ink.ink.ink.ink.ink.ink.ink section:not(#reel) .tPlayer a[download],#hm-hire .ink.ink.ink.ink.ink.ink.ink.ink section:not(#reel) .tPlayer a[download][style],#hm-hire .ink.ink.ink.ink.ink.ink.ink.ink .tPlayer a[download][style]{color:#EEEAE2!important}
+#hm-hire .ink.ink.ink.ink.ink.ink.ink.ink section:not(#reel) .tPlayer a[download][style]:hover{color:#fff!important}
+/* footer sign-off stays in script */
+#hm-hire .ink.ink.ink.ink.ink.ink .mFoot .fri,#hm-hire .ink.ink.ink.ink.ink.ink .mFoot .fri[style]{font-family:'AnaOne',cursive!important;text-transform:none!important;letter-spacing:0!important}
+/* How I teach / How I'm different in the typewriter font */
+#hm-hire .ink.ink.ink.ink.ink.ink #start .sIntro > div > span:first-child,#hm-hire .ink.ink.ink.ink.ink.ink #start .sIntro > div > span:first-child[style]{font-family:'Oldtown','Courier New',monospace!important;text-transform:uppercase!important}
+
 
 /* ---- CARRD FIXES (added for the embed) ----
    In the canvas this page scrolled inside a box. On the real site it scrolls with the page. */
@@ -614,7 +626,7 @@ html,body{overflow-x:hidden}
    3. THE PAGE  (every section in order, each with a note above it)
    Anything in {{double braces}} gets filled in from MY CONTENT below.
    ======================================================================== */
-const TPL = `<div class="inkScroll" ref="{{setInk}}"><svg class="inkLine" aria-hidden="true"><path class="wf" d=""></path><path class="live" d=""></path></svg><div class="inkDot" aria-hidden="true"></div>
+const TPL = `<div class="inkScroll" ref="{{setInk}}"><span id="top" aria-hidden="true"></span><a class="toTop" href="https://hearmelissa.com/#top" aria-label="Back to top">↑ Top</a><svg class="inkLine" aria-hidden="true"><path class="wf" d=""></path><path class="live" d=""></path></svg><div class="inkDot" aria-hidden="true"></div>
 <div class="paper thm dark ink" style="width: 100%; color: var(--ink); font-family: 'Fraunces', Georgia, serif; font-weight: 300; overflow-x: clip">
 
 
@@ -706,7 +718,7 @@ const TPL = `<div class="inkScroll" ref="{{setInk}}"><svg class="inkLine" aria-h
 </section>
 
 
-<section id="roles" style="padding: 60px 48px 40px"><span class="bpNote" aria-hidden="true" style="top: 170px; left: 14px">Callis won me an award. no big deal ;)</span><span class="slug">INT. GREEN ROOM. LATER.</span>
+<section id="roles" style="padding: 60px 48px 40px"><span class="bpNote" aria-hidden="true" style="top: 170px; left: 14px">Callis won me an award!</span><span class="slug">INT. GREEN ROOM. LATER.</span>
 <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid rgba(var(--rgb),0.6); padding-bottom: 14px">
 <h2 style="margin: 0; font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 400; font-size: 64px; line-height: 1">Roles<svg class="hcirc" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M2.6,13.8 L3.9,11.6 L7.0,9.7 L10.2,7.8 L14.1,6.2 L17.6,4.4 L22.6,3.3 L26.8,1.7 L32.6,1.3 L37.6,0.0 L43.5,0.3 L49.1,-0.2 L54.8,-0.2 L60.6,-0.2 L66.2,0.4 L71.1,1.7 L76.5,2.5 L81.6,3.6 L85.1,5.5 L90.0,6.8 L93.4,8.7 L96.7,10.7 L97.6,13.0 L100.4,15.1 L100.9,17.4 L102.4,19.7 L101.8,22.1 L99.5,24.3 L99.8,26.7 L97.4,28.9 L93.8,30.7 L91.6,33.0 L86.6,34.3 L83.3,36.4 L78.2,37.6 L72.6,38.3 L67.9,39.8 L62.0,40.2 L56.2,40.4 L50.4,40.6 L44.6,40.5 L38.7,40.4 L33.1,39.7 L27.2,39.3 L22.4,37.8 L17.9,36.3 L13.6,34.7 L8.6,33.3 L6.1,31.1 L1.6,29.4 L-0.4,27.1 L-1.7,24.8 L-2.8,22.4 L-2.7,20.1 L-3.6,17.6 L-1.5,15.3 L0.4,13.1 L1.8,10.7 L4.2,8.5 L7.5,6.4 L12.3,4.9" vector-effect="non-scaling-stroke"></path></svg></h2>
 <span style="font-family: 'Jost', sans-serif; font-size: 10.5px; letter-spacing: 0.3em; color: var(--mute)">{{counter}}</span>
